@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "genericPatterns": [
+    "[jsonc]",
+    "cSpell.*",
+    "files.exclude",
+    "files.watcherExclude",
+    "makefile.configureOnOpen",
+    "markdown-mermaid.controls.show",
+    "markdownlint.configFile",
+    "markdownlint.lintWorkspaceGlobs",
+    "search.exclude"
+  ],
+  "opinionatedPatterns": [
+    "chat.*",
+    "chatCustomizationsEvaluations.customDiagnostics",
+    "code-eol.*",
+    "csv.enabled",
+    "diffEditor.*",
+    "editor.autoClosingBrackets",
+    "editor.inlineSuggest.edits.showCollapsed",
+    "editor.renderControlCharacters",
+    "editor.renderWhitespace",
+    "editor.showFoldingControls",
+    "favorites.saveSeparated",
+    "git.autofetch",
+    "gitlab.*",
+    "github.copilot.*",
+    "imageCarousel.explorerContextMenu.enabled",
+    "inlineChat.notebookAgent",
+    "logViewer.*",
+    "notebook.showFoldingControls",
+    "terminal.integrated.*",
+    "win-ca.inject",
+    "workbench.*"
+  ]
+}

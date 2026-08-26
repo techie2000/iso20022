@@ -1,0 +1,406 @@
+name: Backfill Labels
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_start:
+        description: "Lowest issue number to include (optional)"
+        required: false
+        default: ""
+      issue_end:
+        description: "Highest issue number to include (optional)"
+        required: false
+        default: ""
+      pr_start:
+        description: "Lowest PR number to include (optional)"
+        required: false
+        default: ""
+      pr_end:
+        description: "Highest PR number to include (optional)"
+        required: false
+        default: ""
+      dry_run:
+        description: "When true, only logs intended label changes"
+        required: true
+        default: "true"
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Backfill issue and PR labels
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs')
+            const path = require('path')
+
+            function toOptionalNumber(value) {
+              const text = String(value || '').trim()
+              if (!text) {
+                return null
+              }
+
+              const parsed = Number(text)
+              if (!Number.isInteger(parsed) || parsed < 1) {
+                throw new Error(`Invalid numeric input: '${value}'`)
+              }
+
+              return parsed
+            }
+
+            function inRange(number, start, end) {
+              if (start !== null && number < start) {
+                return false
+              }
+              if (end !== null && number > end) {
+                return false
+              }
+              return true
+            }
+
+            async function ensureLabel(labelDef) {
+              try {
+                await github.rest.issues.getLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: labelDef.name,
+                })
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw error
+                }
+
+                try {
+                  await github.rest.issues.createLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name: labelDef.name,
+                    color: labelDef.color,
+                    description: labelDef.description,
+                  })
+                } catch (createError) {
+                  if (createError.status !== 422) {
+                    throw createError
+                  }
+                }
+              }
+            }
+
+            const dispatchInputs = context.payload.inputs || {}
+
+            const issueStart = toOptionalNumber(dispatchInputs.issue_start || '')
+            const issueEnd = toOptionalNumber(dispatchInputs.issue_end || '')
+            const prStart = toOptionalNumber(dispatchInputs.pr_start || '')
+            const prEnd = toOptionalNumber(dispatchInputs.pr_end || '')
+            const dryRun = String(dispatchInputs.dry_run || 'true').toLowerCase() === 'true'
+
+            if (issueStart !== null && issueEnd !== null && issueStart > issueEnd) {
+              throw new Error(`Invalid issue range: issue_start (${issueStart}) cannot be greater than issue_end (${issueEnd})`)
+            }
+
+            if (prStart !== null && prEnd !== null && prStart > prEnd) {
+              throw new Error(`Invalid PR range: pr_start (${prStart}) cannot be greater than pr_end (${prEnd})`)
+            }
+
+            const hasAnyFilter =
+              issueStart !== null ||
+              issueEnd !== null ||
+              prStart !== null ||
+              prEnd !== null
+
+            if (!dryRun && !hasAnyFilter) {
+              throw new Error(
+                'Refusing unscoped non-dry-run backfill. Provide at least one range input (issue_start/issue_end/pr_start/pr_end).'
+              )
+            }
+
+            const statusLabelDefs = [
+              {
+                name: 'status: triage',
+                color: 'ededed',
+                description: 'Needs initial review',
+              },
+              {
+                name: 'status: in progress',
+                color: 'fbca04',
+                description: 'Actively being worked on',
+              },
+              {
+                name: 'status: done',
+                color: '0e8a16',
+                description: 'Work completed or merged',
+              },
+            ]
+
+            const issueTypeLabelDefs = [
+              {
+                name: 'bug',
+                color: 'd73a4a',
+                description: "Something isn't working",
+              },
+              {
+                name: 'enhancement',
+                color: 'a2eeef',
+                description: 'New feature or request',
+              },
+              {
+                name: 'question',
+                color: 'd876e3',
+                description: 'Further information is requested',
+              },
+              {
+                name: 'documentation',
+                color: '0075ca',
+                description: 'Improvements or additions to documentation',
+              },
+            ]
+
+            const prLabelDefs = [
+              {
+                name: 'no-issue-needed',
+                color: 'cccccc',
+                description: 'PR does not require a backing issue',
+              },
+              {
+                name: 'linked-issue',
+                color: '1d76db',
+                description: 'PR references one or more issues',
+              },
+            ]
+
+            for (const labelDef of [...statusLabelDefs, ...issueTypeLabelDefs, ...prLabelDefs]) {
+              await ensureLabel(labelDef)
+            }
+
+            const allIssues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              per_page: 100,
+            })
+
+            const repoIssues = allIssues
+              .filter((item) => !item.pull_request)
+              .filter((item) => inRange(item.number, issueStart, issueEnd))
+
+            const issuePrefixLabelMap = [
+              { regex: /^\s*bug\s*:/i, label: 'bug' },
+              { regex: /^\s*enhancement\s*:/i, label: 'enhancement' },
+              { regex: /^\s*(?:question|q)\s*:/i, label: 'question' },
+              { regex: /^\s*(?:docs?|documentation)\s*:/i, label: 'documentation' },
+            ]
+
+            const allStatusNames = statusLabelDefs.map((l) => l.name)
+            let issueUpdates = 0
+            const issueChanges = []
+
+            for (const issue of repoIssues) {
+              const existingLabelNames = (issue.labels || []).map((l) =>
+                typeof l === 'string' ? l : l.name
+              )
+
+              const labelsToAdd = []
+              const hasAnyStatusLabel = existingLabelNames.some((name) => allStatusNames.includes(name))
+              if (!hasAnyStatusLabel) {
+                labelsToAdd.push('status: triage')
+              }
+
+              const issueText = `${issue.title || ''}\n${issue.body || ''}`
+              for (const { regex, label } of issuePrefixLabelMap) {
+                if (regex.test(issueText) && !existingLabelNames.includes(label)) {
+                  labelsToAdd.push(label)
+                }
+              }
+
+              const uniqueLabelsToAdd = [...new Set(labelsToAdd)]
+              if (uniqueLabelsToAdd.length === 0) {
+                continue
+              }
+
+              issueUpdates += 1
+              issueChanges.push({
+                number: issue.number,
+                add: uniqueLabelsToAdd,
+              })
+              core.info(`Issue #${issue.number}: add [${uniqueLabelsToAdd.join(', ')}]`)
+
+              if (!dryRun) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  labels: uniqueLabelsToAdd,
+                })
+              }
+            }
+
+            const allPullRequests = await github.paginate(github.rest.pulls.list, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              sort: 'created',
+              direction: 'asc',
+              per_page: 100,
+            })
+
+            const pullRequests = allPullRequests.filter((pr) => inRange(pr.number, prStart, prEnd))
+            let prUpdates = 0
+            const prChanges = []
+
+            for (const pr of pullRequests) {
+              const { data: prDetails } = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+              })
+
+              const actor = prDetails.user.login
+              const isBotActor = actor.endsWith('[bot]') || actor === 'dependabot'
+
+              const existingLabelNames = (prDetails.labels || []).map((l) =>
+                typeof l === 'string' ? l : l.name
+              )
+
+              const shouldHaveNoIssueNeeded =
+                isBotActor || /- \[x\] no linked issue\s*-\s*reason\s*:\s*\S+/i.test(prDetails.body || '')
+
+              const prText = `${prDetails.title || ''}\n${prDetails.body || ''}`
+              const hasIssueReferenceKeyword = /\b(?:closes?|fixes?|resolves?|refs?|relates?\s+to)(?:\s+|:\s*)#\d+\b/i.test(prText)
+
+              let hasClosingIssuesReference = false
+              try {
+                const query = `
+                  query($owner: String!, $repo: String!, $number: Int!) {
+                    repository(owner: $owner, name: $repo) {
+                      pullRequest(number: $number) {
+                        closingIssuesReferences(first: 1) {
+                          totalCount
+                        }
+                      }
+                    }
+                  }
+                `
+
+                const result = await github.graphql(query, {
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  number: pr.number,
+                })
+
+                hasClosingIssuesReference =
+                  (result?.repository?.pullRequest?.closingIssuesReferences?.totalCount || 0) > 0
+              } catch (error) {
+                core.warning(`PR #${pr.number}: unable to evaluate closing issue refs: ${error?.message || error}`)
+              }
+
+              const shouldHaveLinkedIssue = !shouldHaveNoIssueNeeded && (hasIssueReferenceKeyword || hasClosingIssuesReference)
+
+              const labelsToAdd = []
+              const labelsToRemove = []
+
+              if (shouldHaveNoIssueNeeded) {
+                if (!existingLabelNames.includes('no-issue-needed')) {
+                  labelsToAdd.push('no-issue-needed')
+                }
+                if (existingLabelNames.includes('linked-issue')) {
+                  labelsToRemove.push('linked-issue')
+                }
+              } else if (shouldHaveLinkedIssue) {
+                if (!existingLabelNames.includes('linked-issue')) {
+                  labelsToAdd.push('linked-issue')
+                }
+                if (existingLabelNames.includes('no-issue-needed')) {
+                  labelsToRemove.push('no-issue-needed')
+                }
+              } else {
+                if (existingLabelNames.includes('linked-issue')) {
+                  labelsToRemove.push('linked-issue')
+                }
+                if (existingLabelNames.includes('no-issue-needed')) {
+                  labelsToRemove.push('no-issue-needed')
+                }
+              }
+
+              if (labelsToAdd.length === 0 && labelsToRemove.length === 0) {
+                continue
+              }
+
+              prUpdates += 1
+              prChanges.push({
+                number: pr.number,
+                add: [...new Set(labelsToAdd)],
+                remove: [...new Set(labelsToRemove)],
+              })
+              core.info(
+                `PR #${pr.number}: add [${labelsToAdd.join(', ')}] remove [${labelsToRemove.join(', ')}]`
+              )
+
+              if (dryRun) {
+                continue
+              }
+
+              if (labelsToAdd.length > 0) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  labels: [...new Set(labelsToAdd)],
+                })
+              }
+
+              for (const labelName of labelsToRemove) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: pr.number,
+                    name: labelName,
+                  })
+                } catch (error) {
+                  if (error.status !== 404) {
+                    throw error
+                  }
+                }
+              }
+            }
+
+            const summary = {
+              dryRun,
+              filters: {
+                issue_start: issueStart,
+                issue_end: issueEnd,
+                pr_start: prStart,
+                pr_end: prEnd,
+              },
+              totals: {
+                issues_scanned: repoIssues.length,
+                issues_updated: issueUpdates,
+                prs_scanned: pullRequests.length,
+                prs_updated: prUpdates,
+              },
+              issues: issueChanges,
+              pull_requests: prChanges,
+            }
+
+            const tmpDir = path.join(process.env.GITHUB_WORKSPACE, '.tmp')
+            fs.mkdirSync(tmpDir, { recursive: true })
+            const summaryPath = path.join(tmpDir, 'backfill-label-summary.json')
+            fs.writeFileSync(summaryPath, `${JSON.stringify(summary, null, 2)}\n`, 'utf8')
+            core.info(`Wrote summary artifact payload to ${summaryPath}`)
+
+            core.info(
+              `Backfill summary (dryRun=${dryRun}): issues scanned=${repoIssues.length}, issues updated=${issueUpdates}, PRs scanned=${pullRequests.length}, PRs updated=${prUpdates}`
+            )
+
+      - name: Upload backfill summary artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: backfill-label-summary-${{ github.run_id }}
+          path: .tmp/backfill-label-summary.json
+          if-no-files-found: error

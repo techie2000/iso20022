@@ -1,0 +1,162 @@
+{
+  "chat.agent.maxRequests": 35,
+  "chat.math.enabled": true,
+  "chat.mcp.autostart": "onlyNew",
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": true,
+    "cursor-global": true,
+    "cursor-workspace": true,
+    "windsurf": true
+  },
+  "chat.tools.terminal.autoApprove": {
+    ".vscode/settings.json": true,
+    "/^git push (-u )?origin HEAD(:[A-Za-z0-9._\\/-]+)?$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node --test(\\s+.*)?$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node --version; npm --version$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "ConvertFrom-Json": true,
+    "ConvertTo-Json": true,
+    "ForEach-Object": true,
+    "Get-CimInstance": true,
+    "gh": true,
+    "git add": true,
+    "git checkout": true,
+    "git cherry-pick": true,
+    "git commit": true,
+    "git push": true,
+    "git remote": true,
+    "git restore": true,
+    "git rev-parse": true,
+    "git stash": true,
+    "make": true,
+    "mkdir": true,
+    "New-Item": true,
+    "npm audit": true,
+    "npm ci": true,
+    "npm pkg": true,
+    "npx --no-install": true,
+    "npx markdownlint-cli2": true,
+    "Out-Null": true,
+    "Set-Content": true,
+    "Test-NetConnection": true,
+    "Test-Path": true
+  },
+  "chat.useAgentSkills": true,
+  "chat.useCustomizationsInParentRepositories": true,
+  "chat.viewSessions.orientation": "stacked",
+  "chatCustomizationsEvaluations.customDiagnostics": [],
+  "code-eol.highlightExtraWhitespace": true,
+  "code-eol.highlightNonDefault": true,
+  "csv.enabled": true,
+  "diffEditor.diffAlgorithm": "advanced",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.autoClosingBrackets": "languageDefined",
+  "editor.formatOnPaste": true,
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "editor.insertSpaces": true,
+  "editor.language.brackets": [],
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "all",
+  "editor.showFoldingControls": "always",
+  "editor.tabSize": 2,
+  "favorites.saveSeparated": true,
+  "git.autofetch": true,
+  "github.copilot.chat.anthropic.cacheBreakpoints.lastTwoMessages": true,
+  "github.copilot.chat.anthropic.tools.websearch.enabled": true,
+  "github.copilot.chat.anthropic.tools.websearch.userLocation": {},
+  "github.copilot.chat.cli.remote.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.copilotMemory.enabled": true,
+  "github.copilot.chat.githubMcpServer.enabled": true,
+  "github.copilot.chat.localIndex.enabled": true,
+  "github.copilot.chat.responsesApi.toolSearchTool.enabled": true,
+  "github.copilot.chat.reviewSelection.instructions": [
+    {
+      "text": "Please review the following code for potential issues and improvements."
+    }
+  ],
+  "github.copilot.chat.skillTool.enabled": true,
+  "github.copilot.chat.switchAgent.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "gitlab.customQueries": [
+    {
+      "name": "Issues assigned to me",
+      "noItemText": "No issues assigned to you.",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "type": "issues"
+    },
+    {
+      "name": "Issues created by me",
+      "noItemText": "No issues created by you.",
+      "scope": "created_by_me",
+      "state": "opened",
+      "type": "issues"
+    },
+    {
+      "name": "Merge requests assigned to me",
+      "noItemText": "No merge requests assigned to you.",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "type": "merge_requests"
+    },
+    {
+      "name": "Merge requests I'm reviewing",
+      "noItemText": "No merge requests for you to review.",
+      "reviewer": "<current_user>",
+      "state": "opened",
+      "type": "merge_requests"
+    },
+    {
+      "name": "Merge requests created by me",
+      "noItemText": "No merge requests created by you.",
+      "scope": "created_by_me",
+      "state": "opened",
+      "type": "merge_requests"
+    },
+    {
+      "name": "All project merge requests",
+      "noItemText": "The project has no merge requests",
+      "scope": "all",
+      "state": "opened",
+      "type": "merge_requests"
+    }
+  ],
+  "gitlab.real-timeSecurityScan.enabled": true,
+  "gitlab.showPipelineUpdateNotifications": true,
+  "imageCarousel.explorerContextMenu.enabled": true,
+  "inlineChat.notebookAgent": true,
+  "logViewer.chunkSizeKb": 64,
+  "logViewer.followTailMode": "auto",
+  "logViewer.logLevel": "error",
+  "logViewer.options": {
+    "encoding": "utf8",
+    "fileCheckInterval": 500,
+    "fileListInterval": 2000,
+    "ignorePattern": "(node_modules|.git)"
+  },
+  "logViewer.showStatusBarItemOnChange": true,
+  "notebook.showFoldingControls": "always",
+  "terminal.integrated.localEchoEnabled": "auto",
+  "terminal.integrated.suggest.enabled": true,
+  "terminal.integrated.suggest.providers": {
+    "lsp": true
+  },
+  "terminal.integrated.suggest.quickSuggestions": {
+    "arguments": "on",
+    "commands": "on"
+  },
+  "terminal.integrated.windowsUseConptyDll": true,
+  "win-ca.inject": "append",
+  "workbench.browser.enableChatTools": true,
+  "workbench.browser.experimentalUserTools.enabled": true,
+  "workbench.colorTheme": "Copilot Theme"
+}

@@ -1,0 +1,63 @@
+{
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "cSpell.allowCompoundWords": false,
+  "cSpell.autocorrect": false,
+  "cSpell.caseSensitive": true,
+  "cSpell.customDictionaries": {
+    "finance-words": {
+      "addWords": true,
+      "description": "Finance-domain accepted words",
+      "name": "finance-words",
+      "path": "${workspaceFolder}/.vscode/finance-words.txt",
+      "scope": "workspace"
+    },
+    "generic-project-words": {
+      "addWords": true,
+      "description": "Project-specific accepted words",
+      "name": "generic-project-words",
+      "path": "${workspaceFolder}/.vscode/generic-project-words.txt",
+      "scope": "workspace"
+    },
+    "it-words": {
+      "addWords": true,
+      "description": "IT and tooling accepted words",
+      "name": "it-words",
+      "path": "${workspaceFolder}/.vscode/it-words.txt",
+      "scope": "workspace"
+    }
+  },
+  "cSpell.enabled": true,
+  "cSpell.enabledFileTypes": {
+    "json": true,
+    "jsonc": true,
+    "makefile": false,
+    "markdown": true,
+    "plaintext": true,
+    "powershell": false,
+    "shellscript": false,
+    "yaml": true
+  },
+  "cSpell.ignoreRegExpList": [],
+  "cSpell.language": "en,en-GB",
+  "files.exclude": {
+    "**/backups/**": true,
+    "**/worktrees/**": true
+  },
+  "files.watcherExclude": {
+    "**/backups/**": true,
+    "**/worktrees/**": true
+  },
+  "makefile.configureOnOpen": true,
+  "markdown-mermaid.controls.show": "always",
+  "markdownlint.configFile": ".markdownlint-cli2.yaml",
+  "markdownlint.lintWorkspaceGlobs": [
+    "**/*.md",
+    "!**/.tmp/**"
+  ],
+  "search.exclude": {
+    "**/backups/**": true,
+    "**/worktrees/**": true
+  }
+}

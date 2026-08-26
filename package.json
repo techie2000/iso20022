@@ -1,0 +1,14 @@
+{
+  "name": "template-docs",
+  "version": "1.0.0",
+  "description": "Reusable template for documentation-first projects.",
+  "private": true,
+  "scripts": {
+    "lint-docs": "markdownlint-cli2 --config .markdownlint-cli2.yaml \"**/*.md\"",
+    "lint-docs:fix": "markdownlint-cli2 --config .markdownlint-cli2.yaml --fix \"**/*.md\"",
+    "bootstrap:package": "pwsh ./scripts/bootstrap-package-name.ps1"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.23.2"
+  }
+}

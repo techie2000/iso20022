@@ -1,0 +1,92 @@
+name: New rule request
+description: Request a new repository rule or policy using the current supported fields.
+title: "[Rule Request]: "
+labels:
+  - enhancement
+  - governance
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to propose a new repository rule/policy.
+
+        Keep this form aligned with the repository's supported rule fields and
+        policy workflow. If the schema changes, update this template in the same
+        change.
+
+  - type: input
+    id: rule-id
+    attributes:
+      label: Rule id
+      description: Required. Stable identifier for references in docs and reviews.
+      placeholder: docs-markdown-ignore-sync
+    validations:
+      required: true
+
+  - type: input
+    id: rule-title
+    attributes:
+      label: Rule title
+      description: Required. Short human-readable name.
+      placeholder: Keep markdownlint ignore settings synchronized
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem statement
+      description: Required. What issue does this rule solve?
+      placeholder: Describe the repeated problem this rule prevents.
+    validations:
+      required: true
+
+  - type: input
+    id: scope
+    attributes:
+      label: Scope
+      description: Required. Path or pattern where the rule applies.
+      placeholder: ".github/**"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-rule-text
+    attributes:
+      label: Proposed rule text
+      description: Required. Draft the exact instruction text to add.
+      placeholder: |
+        When updating markdown lint config, keep editor and CLI ignore behavior
+        in sync.
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected-artifacts
+    attributes:
+      label: Affected artifacts
+      description: Optional. Files, scripts, docs, or workflows that must change.
+      placeholder: |
+        - .github/copilot-instructions.md
+        - .github/instructions/<new-file>.instructions.md
+        - README.md
+
+  - type: textarea
+    id: validation-plan
+    attributes:
+      label: Validation plan
+      description: Optional. How should contributors verify this rule?
+      placeholder: |
+        - make lint-docs-fix
+        - make lint-docs
+        - Confirm CI checks pass
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I confirmed this request aligns with current repository structure and workflows.
+          required: true
+        - label: I understand this template must stay synchronized with the rule schema as it evolves.
+          required: true

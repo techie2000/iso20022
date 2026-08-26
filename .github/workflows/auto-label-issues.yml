@@ -1,0 +1,142 @@
+name: Auto Label Issues
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - reopened
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  auto-label-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure issue status and type labels
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const issue = context.payload.issue
+
+            if (issue.pull_request) {
+              core.info('Issue event belongs to a pull request; skipping.')
+              return
+            }
+
+            const statusLabelDefs = [
+              {
+                name: 'status: triage',
+                color: 'ededed',
+                description: 'Needs initial review',
+              },
+              {
+                name: 'status: in progress',
+                color: 'fbca04',
+                description: 'Actively being worked on',
+              },
+              {
+                name: 'status: done',
+                color: '0e8a16',
+                description: 'Work completed or merged',
+              },
+            ]
+
+            const issueTypeLabelDefs = [
+              {
+                name: 'bug',
+                color: 'd73a4a',
+                description: "Something isn't working",
+              },
+              {
+                name: 'enhancement',
+                color: 'a2eeef',
+                description: 'New feature or request',
+              },
+              {
+                name: 'question',
+                color: 'd876e3',
+                description: 'Further information is requested',
+              },
+              {
+                name: 'documentation',
+                color: '0075ca',
+                description: 'Improvements or additions to documentation',
+              },
+            ]
+
+            async function ensureLabel(labelDef) {
+              try {
+                await github.rest.issues.getLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: labelDef.name,
+                })
+              } catch (e) {
+                if (e.status === 404) {
+                  try {
+                    await github.rest.issues.createLabel({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      name: labelDef.name,
+                      color: labelDef.color,
+                      description: labelDef.description,
+                    })
+                  } catch (createError) {
+                    if (createError.status !== 422) {
+                      throw createError
+                    }
+                  }
+                } else {
+                  throw e
+                }
+              }
+            }
+
+            for (const labelDef of [...statusLabelDefs, ...issueTypeLabelDefs]) {
+              await ensureLabel(labelDef)
+            }
+
+            const existingLabelNames = (issue.labels || []).map((l) =>
+              typeof l === 'string' ? l : l.name
+            )
+
+            const statusLabelNames = statusLabelDefs.map((l) => l.name)
+            const hasAnyStatusLabel = existingLabelNames.some((name) => statusLabelNames.includes(name))
+
+            const labelsToAdd = []
+            if (!hasAnyStatusLabel) {
+              labelsToAdd.push('status: triage')
+            }
+
+            const issueText = `${issue.title || ''}\n${issue.body || ''}`
+
+            // Apply type labels only when a clear, explicit title prefix is present.
+            const prefixLabelMap = [
+              { regex: /^\s*bug\s*:/i, label: 'bug' },
+              { regex: /^\s*enhancement\s*:/i, label: 'enhancement' },
+              { regex: /^\s*(?:question|q)\s*:/i, label: 'question' },
+              { regex: /^\s*(?:docs?|documentation)\s*:/i, label: 'documentation' },
+            ]
+
+            for (const { regex, label } of prefixLabelMap) {
+              if (regex.test(issueText) && !existingLabelNames.includes(label)) {
+                labelsToAdd.push(label)
+              }
+            }
+
+            if (labelsToAdd.length === 0) {
+              core.info(`No labels to add on issue #${issue.number}`)
+              return
+            }
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: [...new Set(labelsToAdd)],
+            })
+
+            core.info(`Applied labels on issue #${issue.number}: ${[...new Set(labelsToAdd)].join(', ')}`)

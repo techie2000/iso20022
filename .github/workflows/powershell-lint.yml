@@ -1,0 +1,56 @@
+name: PowerShell lint
+
+on:
+  pull_request:
+    paths:
+      - '**/*.ps1'
+      - '**/*.psm1'
+      - 'scripts/template/PSScriptAnalyzerSettings.psd1'
+      - '.github/workflows/powershell-lint.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.ps1'
+      - '**/*.psm1'
+      - 'scripts/template/PSScriptAnalyzerSettings.psd1'
+      - '.github/workflows/powershell-lint.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  psscriptanalyzer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v7
+
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -Scope CurrentUser -ErrorAction Stop
+
+      - name: Run PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          $settingsPath = Join-Path $PWD 'scripts/template/PSScriptAnalyzerSettings.psd1'
+          $issues = Invoke-ScriptAnalyzer -Path '.' -Recurse -Settings $settingsPath
+
+          if (-not $issues) {
+            Write-Host 'PSScriptAnalyzer found no issues.'
+            exit 0
+          }
+
+          $issues | ForEach-Object {
+            $file = if ($_.ScriptName) { $_.ScriptName } else { '<unknown>' }
+            $line = if ($_.Line) { $_.Line } else { 0 }
+            $message = $_.Message
+            $rule = $_.RuleName
+            Write-Host "::error file=$file,line=$line,title=$rule::$message"
+          }
+
+          Write-Host "PSScriptAnalyzer found $($issues.Count) issue(s)."
+          exit 1

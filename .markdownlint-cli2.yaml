@@ -1,0 +1,6 @@
+config:
+  extends: .markdownlint.yaml
+
+ignores:
+  - .tmp/**
+  - '**/.tmp/**'

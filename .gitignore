@@ -1,0 +1,42 @@
+# OS artifacts
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Editor directories and files
+.idea/
+*.swp
+*.swo
+**/node_modules/
+
+# Temporary files
+*.tmp
+*.bak
+!.tmp/
+
+# Repository-local transient outputs
+.tmp/*
+!.tmp/.gitkeep
+logs/*
+!logs/.gitkeep
+!logs/README.md
+
+# JVM crash logs
+hs_err_pid*.log
+replay_pid*.log
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Credentials #
+*.cer
+*.pfx
+*.pem
+*.key
+*.srl
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock

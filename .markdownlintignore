@@ -1,0 +1,3 @@
+# Ignore transient workspace artifacts
+.tmp/**
+**/.tmp/**

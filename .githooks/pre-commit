@@ -1,0 +1,105 @@
+#!/bin/sh
+# Pre-commit hook: sort VS Code workspace files and lint staged markdown files.
+# Install: git config core.hooksPath .githooks
+
+if [ -f ".vscode/settings.json" ] || [ -f ".vscode/settings.generic.json" ] || [ -f ".vscode/settings.opinionated.json" ] || [ -f ".vscode/extensions.json" ] || ls .vscode/*-words.txt >/dev/null 2>&1; then
+    if command -v pwsh > /dev/null 2>&1; then
+        echo "Sorting VS Code workspace files..."
+        if ! pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/template/settings-sort.ps1; then
+            echo "Failed to sort VS Code workspace files"
+            exit 1
+        fi
+
+        # Keep index in sync if a sorter changed any tracked VS Code workspace files.
+        if ! git diff --quiet -- .vscode/settings.json .vscode/settings.generic.json .vscode/settings.opinionated.json .vscode/extensions.json .vscode/*-words.txt; then
+            git add .vscode/settings.json .vscode/settings.generic.json .vscode/settings.opinionated.json .vscode/extensions.json .vscode/*-words.txt
+            echo "Sorted and staged VS Code workspace files"
+        fi
+
+        settings_profile=${WORK_TEMPLATE_SETTINGS_PROFILE:-generic}
+        case "$settings_profile" in
+            generic|opinionated)
+                ;;
+            *)
+                echo "Invalid WORK_TEMPLATE_SETTINGS_PROFILE '$settings_profile'; defaulting to 'generic'"
+                settings_profile=generic
+                ;;
+        esac
+        echo "Checking VS Code settings profile: $settings_profile"
+        if ! pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/template/settings-profile.ps1 -Action check -Profile "$settings_profile"; then
+            echo "settings.json does not match profile '$settings_profile'"
+            echo "Run: pwsh ./scripts/template/settings-profile.ps1 -Action apply -Profile $settings_profile"
+            exit 1
+        fi
+    else
+        echo "pwsh not found; skipping VS Code file sort"
+    fi
+fi
+
+echo "Running markdown linting..."
+
+if ! command -v npx > /dev/null 2>&1; then
+    echo "npx not found. Install Node.js/npm to run markdownlint-cli2"
+    exit 1
+fi
+
+STAGED_MD_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$')
+
+if [ -n "$STAGED_MD_FILES" ]; then
+    echo "Linting markdown files:"
+    echo "$STAGED_MD_FILES"
+
+    if git diff --cached --name-only --diff-filter=ACM -z | tr '\0' '\n' | grep '\.md$' | tr '\n' '\0' | xargs -0 npx --no-install markdownlint-cli2 --config .markdownlint-cli2.yaml; then
+        echo "Markdown linting passed"
+    else
+        echo ""
+        echo "Markdown linting failed"
+        echo ""
+        echo "Common fixes:"
+        echo "  - MD013: Line length exceeds 120 characters"
+        echo "  - MD040: Fenced code blocks need language specifier"
+        echo "  - MD060: Table columns need proper spacing"
+        echo ""
+        echo "To fix automatically (where possible):"
+        echo "  npx --no-install markdownlint-cli2 --config .markdownlint-cli2.yaml --fix <file>.md"
+        echo ""
+        echo "To skip this check (not recommended):"
+        echo "  git commit --no-verify"
+        exit 1
+    fi
+else
+    echo "No markdown files to lint"
+fi
+
+echo "Running PowerShell linting..."
+
+if ! command -v pwsh > /dev/null 2>&1; then
+    echo "pwsh not found; skipping PowerShell linting"
+    exit 0
+fi
+
+STAGED_PS_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.ps1$')
+
+if [ -z "$STAGED_PS_FILES" ]; then
+    echo "No PowerShell files to lint"
+    exit 0
+fi
+
+echo "Linting PowerShell files:"
+echo "$STAGED_PS_FILES"
+
+if echo "$STAGED_PS_FILES" | xargs -I {} pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/template/lint-powershell.ps1 -Files {} >/dev/null 2>&1; then
+    true  # All files passed
+else
+    # Re-run with output for error display
+    echo "$STAGED_PS_FILES" | xargs -I {} pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/template/lint-powershell.ps1 -Files {}
+    echo ""
+    echo "PowerShell linting failed"
+    echo ""
+    echo "To skip this check (not recommended):"
+    echo "  git commit --no-verify"
+    exit 1
+fi
+echo "PowerShell linting passed"
+exit 0
+

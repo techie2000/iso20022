@@ -1,0 +1,60 @@
+name: Markdown lint helpers
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '.markdownlint-cli2.yaml'
+      - '.markdownlint.yaml'
+      - '.markdownlintignore'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'Makefile'
+      - 'scripts/template/lint-docs.ps1'
+      - 'scripts/template/lint-docs.sh'
+      - 'scripts/template/bootstrap-package-name.ps1'
+      - 'scripts/template/bootstrap-package-name.sh'
+      - '.github/workflows/markdown-lint-helpers.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+      - '.markdownlint-cli2.yaml'
+      - '.markdownlint.yaml'
+      - '.markdownlintignore'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'Makefile'
+      - 'scripts/template/lint-docs.ps1'
+      - 'scripts/template/lint-docs.sh'
+      - 'scripts/template/bootstrap-package-name.ps1'
+      - 'scripts/template/bootstrap-package-name.sh'
+      - '.github/workflows/markdown-lint-helpers.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lint-helper-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Validate Bash markdown lint helper
+        run: bash ./scripts/template/lint-docs.sh
+
+      - name: Validate PowerShell markdown lint helper
+        shell: pwsh
+        run: pwsh ./scripts/template/lint-docs.ps1

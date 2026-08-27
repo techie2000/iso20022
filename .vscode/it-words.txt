@@ -1,5 +1,6 @@
 autofetch
 Claude
+Cowork
 elif
 esac
 frontmatter
@@ -15,6 +16,7 @@ mojibake
 pathlib
 pgsql
 pipefail
+postgres
 precommit
 prepush
 pycache

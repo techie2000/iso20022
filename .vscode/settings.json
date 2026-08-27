@@ -20,6 +20,13 @@
       "path": "${workspaceFolder}/.vscode/generic-project-words.txt",
       "scope": "workspace"
     },
+    "iso20022-words": {
+      "addWords": true,
+      "description": "Project-specific accepted words",
+      "name": "iso20022-words",
+      "path": "${workspaceFolder}/.vscode/iso20022-words.txt",
+      "scope": "workspace"
+    },
     "it-words": {
       "addWords": true,
       "description": "IT and tooling accepted words",
@@ -39,12 +46,19 @@
     "shellscript": false,
     "yaml": true
   },
-  "cSpell.ignoreRegExpList": [],
+  "cSpell.ignorePaths": [
+    "**/backups/**",
+    "**/worktrees/**",
+    "**/node_modules/**"
+  ],
+  "cSpell.ignoreRegExpList": null,
   "cSpell.language": "en,en-GB",
   "files.exclude": {
     "**/backups/**": true,
     "**/worktrees/**": true
   },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "files.watcherExclude": {
     "**/backups/**": true,
     "**/worktrees/**": true

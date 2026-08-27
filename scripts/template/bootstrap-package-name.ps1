@@ -161,16 +161,31 @@ Write-Host "Ensured cSpell word list: $dictionaryPath"
 
 $settings = Get-Content -LiteralPath $settingsPath -Raw | ConvertFrom-Json -AsHashtable
 
-if (-not $settings.ContainsKey("cSpell") -or -not ($settings["cSpell"] -is [System.Collections.IDictionary])) {
-    $settings["cSpell"] = @{}
+# Settings files in this template use flat dotted keys for cSpell.* (see
+# .vscode/settings.generic.json), not a nested "cSpell": {...} object. Target
+# the flat key, and fold in any legacy nested customDictionaries entries so a
+# previously mis-registered settings.json self-heals instead of ending up
+# with two conflicting customDictionaries blocks.
+if (-not $settings.ContainsKey("cSpell.customDictionaries") -or -not ($settings["cSpell.customDictionaries"] -is [System.Collections.IDictionary])) {
+    $settings["cSpell.customDictionaries"] = @{}
+}
+$customDictionaries = $settings["cSpell.customDictionaries"]
+
+if ($settings.ContainsKey("cSpell") -and ($settings["cSpell"] -is [System.Collections.IDictionary])) {
+    $legacyCSpell = $settings["cSpell"]
+    if ($legacyCSpell.ContainsKey("customDictionaries") -and ($legacyCSpell["customDictionaries"] -is [System.Collections.IDictionary])) {
+        foreach ($key in @($legacyCSpell["customDictionaries"].Keys)) {
+            if (-not $customDictionaries.ContainsKey($key)) {
+                $customDictionaries[$key] = $legacyCSpell["customDictionaries"][$key]
+            }
+        }
+        $legacyCSpell.Remove("customDictionaries")
+    }
+    if ($legacyCSpell.Count -eq 0) {
+        $settings.Remove("cSpell")
+    }
 }
 
-$cSpell = $settings["cSpell"]
-if (-not $cSpell.ContainsKey("customDictionaries") -or -not ($cSpell["customDictionaries"] -is [System.Collections.IDictionary])) {
-    $cSpell["customDictionaries"] = @{}
-}
-
-$customDictionaries = $cSpell["customDictionaries"]
 $customDictionaries[$dictionaryName] = @{
     addWords = $true
     description = "Project-specific accepted words"

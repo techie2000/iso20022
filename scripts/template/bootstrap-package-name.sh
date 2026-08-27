@@ -160,18 +160,35 @@ fs.mkdirSync(path.dirname(dictionaryFilePath), { recursive: true });
 fs.writeFileSync(dictionaryFilePath, `${sortedWords.join("\n")}\n`, "utf8");
 
 const settings = JSON.parse(fs.readFileSync(settingsPath, "utf8"));
-if (!settings.cSpell || typeof settings.cSpell !== "object" || Array.isArray(settings.cSpell)) {
-  settings.cSpell = {};
-}
-if (
-  !settings.cSpell.customDictionaries ||
-  typeof settings.cSpell.customDictionaries !== "object" ||
-  Array.isArray(settings.cSpell.customDictionaries)
-) {
-  settings.cSpell.customDictionaries = {};
+
+function isPlainObject(value) {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
-const customDictionaries = settings.cSpell.customDictionaries;
+// Settings files in this template use flat dotted keys for cSpell.* (see
+// .vscode/settings.generic.json), not a nested "cSpell": {...} object. Target
+// the flat key, and fold in any legacy nested customDictionaries entries so a
+// previously mis-registered settings.json self-heals instead of ending up
+// with two conflicting customDictionaries blocks.
+if (!isPlainObject(settings["cSpell.customDictionaries"])) {
+  settings["cSpell.customDictionaries"] = {};
+}
+const customDictionaries = settings["cSpell.customDictionaries"];
+
+if (isPlainObject(settings.cSpell)) {
+  if (isPlainObject(settings.cSpell.customDictionaries)) {
+    for (const [key, value] of Object.entries(settings.cSpell.customDictionaries)) {
+      if (!(key in customDictionaries)) {
+        customDictionaries[key] = value;
+      }
+    }
+    delete settings.cSpell.customDictionaries;
+  }
+  if (Object.keys(settings.cSpell).length === 0) {
+    delete settings.cSpell;
+  }
+}
+
 customDictionaries[dictionaryName] = {
   addWords: true,
   description: "Project-specific accepted words",

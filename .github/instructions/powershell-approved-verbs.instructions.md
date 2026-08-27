@@ -31,3 +31,9 @@ When writing or modifying PowerShell functions or cmdlets in this repository:
 - Use `Read-Choice` instead of `Ask-Choice`
 - Use `Invoke-ReportGeneration` instead of `Do-ReportGeneration`
 - Use `Start-Processing` instead of `Handle-Processing`
+
+## Tooling
+
+- The repository includes `scripts/template/PSScriptAnalyzerSettings.psd1` and
+  `.github/workflows/powershell-lint.yml` to validate PowerShell scripts in
+  GitHub Actions.

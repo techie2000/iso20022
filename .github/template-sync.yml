@@ -18,5 +18,5 @@
 # surface that should never be compared.
 template_repo: "techie2000/template-docs"
 template_ref: "main"
-baseline_ref: ""
+baseline_ref: "d6c486a74c58ae491c06403452e004ecb5b8b2d0"
 comparison_exclude_paths: ""

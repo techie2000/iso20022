@@ -64,7 +64,7 @@ resources:
                 name: src/postgres/schema/
                 subtitle: Deployable DDL
                 description: >
-                  The five schema files plus 00_deploy_all.sql orchestrator and
+                  The six schema files plus 00_deploy_all.sql orchestrator and
                   the tests/ subfolder with the automated test suite.
               - id: src_postgres_generators
                 name: src/postgres/generators/

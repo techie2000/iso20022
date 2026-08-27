@@ -36,6 +36,9 @@
 \echo '=== 10.1 File 4: Payment Instructions & Compliance ==='
 \ir 10.1_file4_payment_compliance.sql
 
+\echo '=== 10.1 File 5: Remittance ==='
+\ir 10.1_file5_remittance.sql
+
 \echo ''
 \echo '=== Deployment complete. Object counts: ==='
 SELECT 'domains' AS kind, count(*) AS count FROM pg_type t JOIN pg_namespace n ON t.typnamespace=n.oid WHERE n.nspname='public' AND t.typtype='d'
@@ -48,8 +51,9 @@ SELECT 'tables', count(*) FROM pg_tables WHERE schemaname='public'
 UNION ALL
 SELECT 'functions', count(*) FROM pg_proc p JOIN pg_namespace n ON p.pronamespace=n.oid WHERE n.nspname='public';
 \echo ''
-\echo 'Expected: 66 domains, 19 enums, 93 composite types, 29 tables, 45 functions.'
+\echo 'Expected: 66 domains, 19 enums, 119 composite types, 29 tables, 62 functions.'
 \echo 'If your counts differ, something above failed silently -- scroll up for ERROR lines,'
 \echo 'or re-run with -v ON_ERROR_STOP=1 if you did not already.'
 \echo ''
-\echo 'Next: run run_all_tests.sql to verify the deployed schema actually behaves correctly.'
+\echo 'Section 10.1 Message Components is now fully complete.'
+\echo 'Next: run tests/run_all_tests.sql to verify the deployed schema actually behaves correctly.'

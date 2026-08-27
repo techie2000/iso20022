@@ -2,9 +2,10 @@
 
 PostgreSQL schema implementation generated from the ISO 20022 Message
 Definition Report, Part 2 (Payments Clearing and Settlement, Maintenance
-2024-2025). Covers Section 10.2 "Message Datatypes" and most of Section 10.1
-"Message Components". Message-level tables (pain/pacs/camt) and 10.1.18
-Remittance are not started yet.
+2024-2025). Covers Section 10.2 "Message Datatypes" and the entirety of
+Section 10.1 "Message Components", including 10.1.18 Remittance.
+Message-level tables (pain/pacs/camt) are the remaining follow-on phase and
+are not started yet.
 
 ## Structure
 

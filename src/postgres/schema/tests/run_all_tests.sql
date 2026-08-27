@@ -26,6 +26,7 @@
 \ir test_10_1_file2_identity_contact.sql
 \ir test_10_1_file3_accounts_fi.sql
 \ir test_10_1_file4_payment_compliance.sql
+\ir test_10_1_file5_remittance.sql
 
 \echo ''
 \echo '======================================================'

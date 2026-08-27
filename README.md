@@ -1,9 +1,13 @@
-# Work Template Docs
+# ISO 20022 Implementation
 
-This repository is a reusable template for documentation-first projects.
+This repository supports an ISO 20022 message implementation effort: schema and
+message handling, validation, and integration tooling for ISO 20022 financial
+messaging standards.
 
-Use it as a starting point for collecting vendor documentation, internal notes,
-and operational references for the software or service being documented.
+It was generated from a reusable documentation-first template and retains that
+template's cross-platform tooling. It collects vendor documentation, internal
+implementation notes, and operational references while `src/` and `test/`
+await the concrete implementation language and message scope.
 
 ## Structure
 
@@ -17,8 +21,8 @@ and operational references for the software or service being documented.
 | [images/](images/) | Supporting screenshots and diagrams |
 | [logs/](logs/) | Tracked log guidance and anchor files; generated runtime logs remain ignored |
 | [scripts/](scripts/) | Scripts directory; `scripts/template/` holds template-provided tooling; add repo-specific scripts in purpose-named subfolders (e.g. `scripts/runtime/`) |
-| [src/](src/) | Placeholder for application or service source code |
-| [test/](test/) | Placeholder for automated tests covering `src/` |
+| [src/](src/) | Placeholder for the ISO 20022 implementation source code (language not yet chosen) |
+| [test/](test/) | Placeholder for automated tests verifying the ISO 20022 implementation in `src/` |
 
 ## Tooling
 

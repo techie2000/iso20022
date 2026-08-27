@@ -1,13 +1,14 @@
-description: Quick workspace overview for {{PROJECT_NAME}}. Use this in Ilograph to explore repository areas and key file relationships.
+description: Quick workspace overview for the ISO 20022 implementation. Use this in Ilograph to explore repository areas and key file relationships.
 
 resources:
   - id: repo
-    name: {{REPO_NAME}}
+    name: iso20022
     subtitle: Repository Root
     color: "#1F4E79"
     description: >
-      Reusable documentation-first project template. Contains source logic,
-      documentation, scripts, and tooling configuration.
+      ISO 20022 implementation repository generated from a reusable
+      documentation-first template. Contains source logic, documentation,
+      scripts, and tooling configuration.
     children:
 
       - id: docs
@@ -44,14 +45,15 @@ resources:
         subtitle: Source / Runtime Logic
         color: "#17A2B8"
         description: >
-          Placeholder for application/source code. Add the runtime/service logic for
-          your project here.
+          Placeholder for the ISO 20022 implementation source code. Add the
+          message-processing and integration logic here once a language/stack
+          is chosen.
 
       - id: test
         name: test/
         subtitle: Tests
         color: "#28A745"
-        description: Placeholder for automated tests (unit/integration) covering `src/`.
+        description: Placeholder for automated tests (unit/integration) verifying the ISO 20022 implementation in `src/`.
 
       - id: scripts
         name: scripts/

@@ -1,7 +1,7 @@
 {
-  "name": "template-docs",
+  "name": "iso20022",
   "version": "1.0.0",
-  "description": "Reusable template for documentation-first projects.",
+  "description": "ISO 20022 message implementation: documentation, tooling, and implementation source (language not yet chosen).",
   "private": true,
   "scripts": {
     "lint-docs": "markdownlint-cli2 --config .markdownlint-cli2.yaml \"**/*.md\"",

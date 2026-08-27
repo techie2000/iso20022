@@ -1,7 +1,7 @@
 # Vendor Documentation
 
-This folder contains vendor-supplied documentation and templates for the target
-project.
+This folder contains vendor-supplied ISO 20022 documentation and templates for
+this implementation.
 
 ## Files
 

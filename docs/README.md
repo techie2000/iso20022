@@ -1,6 +1,6 @@
 # Docs Directory
 
-This folder stores documentation artifacts for the {{PROJECT_NAME}} repository.
+This folder stores documentation artifacts for the ISO 20022 implementation repository.
 
 ## Subfolders
 

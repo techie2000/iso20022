@@ -45,9 +45,39 @@ resources:
         subtitle: Source / Runtime Logic
         color: "#17A2B8"
         description: >
-          Placeholder for the ISO 20022 implementation source code. Add the
-          message-processing and integration logic here once a language/stack
-          is chosen.
+          ISO 20022 implementation source code. Currently holds a working
+          PostgreSQL schema implementation for MDR Part 2.
+        children:
+          - id: src_readme
+            name: src/README.md
+            subtitle: Source Index
+            description: Entry point describing implementation stacks under src/.
+          - id: src_postgres
+            name: src/postgres/
+            subtitle: PostgreSQL Implementation
+            description: >
+              PostgreSQL schema for ISO 20022 MDR Part 2 (Payments Clearing and
+              Settlement): Section 10.2 Message Datatypes and most of Section
+              10.1 Message Components.
+            children:
+              - id: src_postgres_schema
+                name: src/postgres/schema/
+                subtitle: Deployable DDL
+                description: >
+                  The five schema files plus 00_deploy_all.sql orchestrator and
+                  the tests/ subfolder with the automated test suite.
+              - id: src_postgres_generators
+                name: src/postgres/generators/
+                subtitle: Schema Generators
+                description: >
+                  Python scripts regenerating the schema from source
+                  registries and the MDR spec text.
+              - id: src_postgres_config
+                name: src/postgres/config/
+                subtitle: Generator Configuration
+                description: >
+                  Persistent type field registry (type_fields_registry.json)
+                  shared across generator runs.
 
       - id: test
         name: test/
@@ -297,6 +327,12 @@ resources:
                     description: >-
                       Syncs status: triage / in progress / done labels on linked
                       issues across the PR lifecycle.
+                  - id: workflow_validate_postgres_schema
+                    name: validate-postgres-schema.yml
+                    subtitle: Validate PostgreSQL Schema
+                    description: >-
+                      Deploys src/postgres/schema against a PostgreSQL 16
+                      service container and runs its automated test suite.
           - id: githooks
             name: .githooks/
             subtitle: Git Hooks
@@ -484,6 +520,9 @@ perspectives:
       - from: workflow_ps_lint
         to: scripts_template
         label: lints .ps1 files
+      - from: workflow_validate_postgres_schema
+        to: src_postgres_schema
+        label: deploys and tests
       - from: workflow_sync_issue_status
         to: workflow_check_issue_link
         label: complements

@@ -1,0 +1,53 @@
+name: Validate PostgreSQL schema
+
+on:
+  pull_request:
+    paths:
+      - 'src/postgres/**'
+      - '.github/workflows/validate-postgres-schema.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/postgres/**'
+      - '.github/workflows/validate-postgres-schema.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: iso20022
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: iso20022
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v7
+
+      - name: Deploy schema
+        working-directory: src/postgres/schema
+        run: psql -v ON_ERROR_STOP=1 -f 00_deploy_all.sql
+
+      - name: Run test suite
+        working-directory: src/postgres/schema/tests
+        run: psql -v ON_ERROR_STOP=1 -f run_all_tests.sql

@@ -6,8 +6,8 @@ messaging standards.
 
 It was generated from a reusable documentation-first template and retains that
 template's cross-platform tooling. It collects vendor documentation, internal
-implementation notes, and operational references while `src/` and `test/`
-await the concrete implementation language and message scope.
+implementation notes, and operational references alongside `src/`, which now
+holds a working PostgreSQL schema implementation for ISO 20022 MDR Part 2.
 
 ## Structure
 
@@ -21,8 +21,9 @@ await the concrete implementation language and message scope.
 | [images/](images/) | Supporting screenshots and diagrams |
 | [logs/](logs/) | Tracked log guidance and anchor files; generated runtime logs remain ignored |
 | [scripts/](scripts/) | Scripts directory; `scripts/template/` holds template-provided tooling; add repo-specific scripts in purpose-named subfolders (e.g. `scripts/runtime/`) |
-| [src/](src/) | Placeholder for the ISO 20022 implementation source code (language not yet chosen) |
-| [test/](test/) | Placeholder for automated tests verifying the ISO 20022 implementation in `src/` |
+| [src/](src/) | ISO 20022 implementation source code; see [src/README.md](src/README.md) |
+| [src/postgres/](src/postgres/) | PostgreSQL schema for ISO 20022 MDR Part 2 (Payments Clearing and Settlement); see [src/postgres/README.md](src/postgres/README.md) |
+| [test/](test/) | Placeholder for automated tests verifying the ISO 20022 implementation in `src/`; the PostgreSQL implementation's own test suite lives under [src/postgres/schema/tests/](src/postgres/schema/tests/) |
 
 ## Tooling
 

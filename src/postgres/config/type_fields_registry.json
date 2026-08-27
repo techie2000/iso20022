@@ -1,0 +1,348 @@
+{
+  "AccountIdentification4Choice": [
+    "IBAN",
+    "Other"
+  ],
+  "AccountSchemeName1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "ActiveCurrencyAndAmount": [
+    "Amt",
+    "Ccy"
+  ],
+  "ActiveOrHistoricCurrencyAndAmount": [
+    "Amt",
+    "Ccy"
+  ],
+  "AddressType3Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "AmountType4Choice": [
+    "InstructedAmount",
+    "EquivalentAmount"
+  ],
+  "Authorisation1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "BranchAndFinancialInstitutionIdentification8": [
+    "FinancialInstitutionIdentification",
+    "BranchIdentification"
+  ],
+  "BranchData5": [
+    "Identification",
+    "LEI",
+    "Name",
+    "PostalAddress"
+  ],
+  "CashAccount40": [
+    "Identification",
+    "Type",
+    "Currency",
+    "Name",
+    "Proxy"
+  ],
+  "CashAccountType2Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "CategoryPurpose1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "ClearingSystemIdentification2Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "ClearingSystemMemberIdentification2": [
+    "ClearingSystemIdentification",
+    "MemberIdentification"
+  ],
+  "Contact13": [
+    "NamePrefix",
+    "Name",
+    "PhoneNumber",
+    "MobileNumber",
+    "FaxNumber",
+    "URLAddress",
+    "EmailAddress",
+    "EmailPurpose",
+    "JobTitle",
+    "Responsibility",
+    "Department",
+    "Other",
+    "PreferredMethod"
+  ],
+  "CreditTransferMandateData1": [
+    "MandateIdentification",
+    "Type",
+    "DateOfSignature",
+    "DateOfVerification",
+    "ElectronicSignature",
+    "FirstPaymentDate",
+    "FinalPaymentDate",
+    "Frequency",
+    "Reason"
+  ],
+  "DateAndPlaceOfBirth1": [
+    "BirthDate",
+    "ProvinceOfBirth",
+    "CityOfBirth",
+    "CountryOfBirth"
+  ],
+  "DatePeriod2": [
+    "FromDate",
+    "ToDate"
+  ],
+  "EquivalentAmount2": [
+    "Amount",
+    "CurrencyOfTransfer"
+  ],
+  "FinancialIdentificationSchemeName1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "FinancialInstitutionIdentification23": [
+    "BICFI",
+    "ClearingSystemMemberIdentification",
+    "LEI",
+    "Name",
+    "PostalAddress",
+    "Other"
+  ],
+  "Frequency36Choice": [
+    "Type",
+    "Period",
+    "PointInTime"
+  ],
+  "FrequencyAndMoment1": [
+    "Type",
+    "PointInTime"
+  ],
+  "FrequencyPeriod1": [
+    "Type",
+    "CountPerPeriod"
+  ],
+  "GenericAccountIdentification1": [
+    "Identification",
+    "SchemeName",
+    "Issuer"
+  ],
+  "GenericFinancialIdentification1": [
+    "Identification",
+    "SchemeName",
+    "Issuer"
+  ],
+  "GenericIdentification3": [
+    "Identification",
+    "Issuer"
+  ],
+  "GenericIdentification30": [
+    "Identification",
+    "Issuer",
+    "SchemeName"
+  ],
+  "GenericOrganisationIdentification3": [
+    "Identification",
+    "SchemeName",
+    "Issuer"
+  ],
+  "GenericPersonIdentification2": [
+    "Identification",
+    "SchemeName",
+    "Issuer"
+  ],
+  "InstructionForCreditorAgent3": [
+    "Code",
+    "InstructionInformation"
+  ],
+  "LocalInstrument2Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "MandateClassification1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "MandateSetupReason1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "MandateTypeInformation2": [
+    "ServiceLevel",
+    "LocalInstrument",
+    "CategoryPurpose",
+    "Classification"
+  ],
+  "NumberOfTransactionsPerStatus5": [
+    "DetailedNumberOfTransactions",
+    "DetailedStatus",
+    "DetailedControlSum"
+  ],
+  "OrganisationIdentification39": [
+    "AnyBIC",
+    "LEI",
+    "Other"
+  ],
+  "OrganisationIdentificationSchemeName1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "OriginalBusinessQuery1": [
+    "MessageIdentification",
+    "MessageNameIdentification",
+    "CreationDateTime"
+  ],
+  "OriginalGroupInformation27": [
+    "OriginalMessageIdentification",
+    "OriginalMessageNameIdentification",
+    "OriginalCreationDateTime",
+    "OriginalNumberOfTransactions",
+    "OriginalControlSum"
+  ],
+  "OriginalGroupInformation29": [
+    "OriginalMessageIdentification",
+    "OriginalMessageNameIdentification",
+    "OriginalCreationDateTime"
+  ],
+  "OtherContact1": [
+    "ChannelType",
+    "Identification"
+  ],
+  "Party52Choice": [
+    "OrganisationIdentification",
+    "PrivateIdentification"
+  ],
+  "PartyIdentification272": [
+    "Name",
+    "PostalAddress",
+    "Identification",
+    "CountryOfResidence",
+    "ContactDetails"
+  ],
+  "PaymentIdentification13": [
+    "InstructionIdentification",
+    "EndToEndIdentification",
+    "TransactionIdentification",
+    "UETR",
+    "ClearingSystemReference"
+  ],
+  "PaymentTypeInformation27": [
+    "InstructionPriority",
+    "ClearingChannel",
+    "ServiceLevel",
+    "LocalInstrument",
+    "SequenceType",
+    "CategoryPurpose"
+  ],
+  "PaymentTypeInformation28": [
+    "InstructionPriority",
+    "ClearingChannel",
+    "ServiceLevel",
+    "LocalInstrument",
+    "CategoryPurpose"
+  ],
+  "PersonIdentification18": [
+    "DateAndPlaceOfBirth",
+    "Other"
+  ],
+  "PersonIdentificationSchemeName1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "PostalAddress27": [
+    "AddressType",
+    "CareOf",
+    "Department",
+    "SubDepartment",
+    "StreetName",
+    "BuildingNumber",
+    "BuildingName",
+    "Floor",
+    "UnitNumber",
+    "PostBox",
+    "Room",
+    "PostCode",
+    "TownName",
+    "TownLocationName",
+    "DistrictName",
+    "CountrySubDivision",
+    "Country",
+    "AddressLine"
+  ],
+  "ProxyAccountIdentification1": [
+    "Type",
+    "Identification"
+  ],
+  "ProxyAccountType1Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "Purpose2Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "References74Choice": [
+    "SecuritiesSettlementTransactionIdentification",
+    "IntraPositionMovementIdentification",
+    "IntraBalanceMovementIdentification",
+    "AccountServicerTransactionIdentification",
+    "MarketInfrastructureTransactionIdentification",
+    "CounterpartyMarketInfrastructureTransactionIdentification",
+    "PoolIdentification",
+    "CommonIdentification",
+    "TradeIdentification",
+    "OtherTransactionIdentification"
+  ],
+  "RegulatoryAuthority2": [
+    "Name",
+    "Country"
+  ],
+  "RegulatoryReporting3": [
+    "DebitCreditReportingIndicator",
+    "Authority",
+    "Details"
+  ],
+  "RemittanceInformation2": [
+    "Unstructured"
+  ],
+  "ServiceLevel8Choice": [
+    "Code",
+    "Proprietary"
+  ],
+  "SettlementTimeRequest2": [
+    "CLSTime",
+    "TillTime",
+    "FromTime",
+    "RejectTime"
+  ],
+  "StructuredRegulatoryReporting3": [
+    "Type",
+    "Date",
+    "Country",
+    "Code",
+    "Amount",
+    "Information"
+  ],
+  "SupplementaryData1": [
+    "PlaceAndName",
+    "Envelope"
+  ],
+  "TaxAuthorisation1": [
+    "Title",
+    "Name"
+  ],
+  "TaxParty1": [
+    "TaxIdentification",
+    "RegistrationIdentification",
+    "TaxType"
+  ],
+  "TaxParty2": [
+    "TaxIdentification",
+    "RegistrationIdentification",
+    "TaxType",
+    "Authorisation"
+  ]
+}

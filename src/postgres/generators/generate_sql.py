@@ -9,7 +9,35 @@ Conventions follow the user's own AddressType2Code / validate_date_period
 examples: schema public, double-quoted PascalCase names matching the MDR
 exactly, OWNER TO postgres, full COMMENT ON blocks carrying the MDR prose
 so the documentation survives outside the source PDF.
+
+Input/output paths default to a `data/` folder next to this script and the
+real schema file, resolved relative to this script's own location (not the
+current working directory) so the script works regardless of invocation
+directory or environment. Override with the CLI flags below -- e.g. to
+point at freshly-downloaded source files for a scheduled refresh.
 """
+
+import argparse
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+argparser = argparse.ArgumentParser(description=__doc__)
+argparser.add_argument(
+    "--iso4217-csv", default=os.path.join(SCRIPT_DIR, "data", "iso4217_raw.csv"),
+    help="ISO 4217 currency codes CSV (datahub.io core/currency-codes, codes-all.csv)")
+argparser.add_argument(
+    "--iso3166-csv", default=os.path.join(SCRIPT_DIR, "data", "iso3166_raw.csv"),
+    help="ISO 3166-1 alpha-2 country codes CSV (datahub.io core/country-list, data.csv)")
+argparser.add_argument(
+    "--external-codesets-xlsx",
+    default=os.path.join(SCRIPT_DIR, "data", "external_codesets.xlsx"),
+    help="ISO 20022 External Code Sets registry XLSX (AllCodeSets sheet)")
+argparser.add_argument(
+    "--output",
+    default=os.path.join(SCRIPT_DIR, "..", "schema", "10.2_message_datatypes.sql"),
+    help="Path to write the generated SQL to")
+args = argparser.parse_args()
 
 out = []
 
@@ -199,7 +227,7 @@ def batched(items, n):
 
 BATCH_SIZE = 40
 
-with open('/home/claude/iso4217_raw.csv') as f:
+with open(args.iso4217_csv, encoding='utf-8') as f:
     currency_rows = list(_csv.DictReader(f))
 
 active_currency = {}
@@ -240,7 +268,7 @@ print(f"Seeded ActiveOrHistoricCurrencyCodeValues: {len(all_currency)} rows in "
       f"{-(-len(items)//BATCH_SIZE)} batches "
       f"({len(active_currency)} active, {len(all_currency)-len(active_currency)} historic-only)")
 
-with open('/home/claude/iso3166_raw.csv') as f:
+with open(args.iso3166_csv, encoding='utf-8') as f:
     country_rows = list(_csv.DictReader(f))
 
 emit('-- Seed: CountryCodeValues (ISO 3166-1 alpha-2, official short names)')
@@ -275,7 +303,7 @@ emit('SELECT \'ActiveCurrencyCodeValues\' AS "Table", count(*) AS "RowCount" FRO
 emit('UNION ALL SELECT \'ActiveOrHistoricCurrencyCodeValues\', count(*) FROM public."ActiveOrHistoricCurrencyCodeValues"')
 emit('UNION ALL SELECT \'CountryCodeValues\', count(*) FROM public."CountryCodeValues";\n')
 
-with open('/home/claude/sql_generated.sql', 'w') as f:
+with open(args.output, 'w', encoding='utf-8', newline='\n') as f:
     f.writelines(out)
 
 # ---------------------------------------------------------------------
@@ -668,7 +696,7 @@ def sqldate(s):
     return 'NULL' if not s else sqlstr(s) + '::date'
 
 _wb = _openpyxl.load_workbook(
-    '/home/claude/1Q2026_externalcodesets_v1.xlsx', read_only=True, data_only=True)
+    args.external_codesets_xlsx, read_only=True, data_only=True)
 _ws = _wb['AllCodeSets']
 _rows = list(_ws.iter_rows(values_only=True))
 _data = _rows[1:]  # skip header
@@ -737,7 +765,7 @@ verify_lines = [f"SELECT '{name}Values' AS \"Table\", count(*) AS \"RowCount\" F
                 for name, _, _ in external_codes]
 emit((" UNION ALL\n").join(verify_lines) + ';\n')
 
-with open('/home/claude/sql_generated.sql', 'w') as f:
+with open(args.output, 'w', encoding='utf-8', newline='\n') as f:
     f.writelines(out)
 
 # ---------------------------------------------------------------------
@@ -1126,7 +1154,7 @@ for type_name, ccy_domain, fn_name, type_comment, fn_constraint_note in amount_t
 
 print(f"Part 10 done: {len(amount_types)} composite amount types + validate functions")
 
-with open('/home/claude/sql_generated.sql', 'w') as f:
+with open(args.output, 'w', encoding='utf-8', newline='\n') as f:
     f.writelines(out)
 
 total_objects = 3 + 19 + 26*2 + 1 + 4 + 5 + 2 + 4 + 21 + 2*2

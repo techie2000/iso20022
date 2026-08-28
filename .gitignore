@@ -29,6 +29,10 @@ replay_pid*.log
 __pycache__/
 *.py[cod]
 
+# Downloaded source data for generate_sql.py (ISO 4217/3166/External Code
+# Sets refresh) -- fetched on demand, not committed
+src/postgres/generators/data/
+
 # Credentials #
 *.cer
 *.pfx

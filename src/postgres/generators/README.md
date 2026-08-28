@@ -80,14 +80,24 @@ extraction (boilerplate stripping, header levels, verbatim table blocks).
 
 ## Known gap: hardcoded working paths
 
-These scripts were authored in an exploratory AI-assisted session and still
-read/write intermediate files (downloaded registry CSVs/XLSX, generated SQL
-output) using absolute paths from that original environment (for example,
-`/home/claude/...`). Only `type_registry.py`'s registry path has been fixed
-to resolve relative to this repository (`../config/type_fields_registry.json`).
+These scripts were authored in an exploratory AI-assisted session and mostly
+still read/write intermediate files (downloaded registry CSVs/XLSX, generated
+SQL output) using absolute paths from that original environment (for example,
+`/home/claude/...`). `type_registry.py`'s registry path and `generate_sql.py`'s
+three input paths and output path have been fixed to resolve relative to this
+repository -- the latter via CLI flags (see `--help`), defaulting to a
+`data/` folder next to the script and writing straight to
+`../schema/10.2_message_datatypes.sql`. This is what
+[.github/workflows/refresh-10-2-external-codes.yml](../../../.github/workflows/refresh-10-2-external-codes.yml)
+runs monthly to keep that file's ISO 4217/3166/External Code Sets seed data
+current.
 
-Before re-running any `generate_*.py` script in a new environment, update its
-hardcoded input/output paths to suit your working directory. This is tracked
-as a follow-up rather than fixed here, to avoid changing untested codegen
-logic without validating the regenerated SQL against the existing schema and
-test suite.
+`generate_10_1_file1.py` through `generate_10_1_file4.py` still have
+hardcoded `/home/claude/...` paths (output file and a `sys.path.insert`
+for importing `type_registry`, which is unnecessary now that it lives
+alongside them and Python already puts a script's own directory on
+`sys.path`). Before re-running one of these in a new environment, update its
+hardcoded paths to suit your working directory. This is tracked as a
+follow-up rather than fixed here, to avoid changing untested codegen logic
+without validating the regenerated SQL against the existing schema and test
+suite.

@@ -1,0 +1,158 @@
+name: Refresh 10.2 external code sets
+
+# Regenerates 10.2_message_datatypes.sql from the three external sources it
+# is built from (ISO 4217 currencies, ISO 3166-1 countries, ISO 20022
+# External Code Sets registry) and opens a PR if the regenerated file
+# differs from what's checked in.
+#
+# ISO republishes the External Code Sets registry end of Feb/May/Aug/Nov in
+# theory, but this runs monthly as a safety net in case that cadence ever
+# changes without us noticing. The registry XLSX is fetched from a stable
+# "current release" permalink -- the ISO 20022 catalogue page itself blocks
+# automated (non-browser) requests entirely, so there's no way to discover a
+# new per-quarter filename automatically; this permalink is ISO's own
+# always-current pointer and is what generate_sql.py was originally built
+# against.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 1 * *' # 08:00 UTC on the 1st of every month
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: iso20022
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: iso20022
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install openpyxl
+
+      - name: Download ISO 4217 currency codes
+        run: |
+          mkdir -p src/postgres/generators/data
+          curl -fsSL -o src/postgres/generators/data/iso4217_raw.csv \
+            https://datahub.io/core/currency-codes/r/codes-all.csv
+
+      - name: Download ISO 3166-1 country codes
+        run: |
+          curl -fsSL -o src/postgres/generators/data/iso3166_raw.csv \
+            https://datahub.io/core/country-list/r/data.csv
+
+      - name: Download ISO 20022 External Code Sets registry
+        run: |
+          curl -fsSL -o src/postgres/generators/data/external_codesets.zip \
+            https://www.iso20022.org/sites/default/files/media/file/ExternalCodeSets_XLSX.zip
+          unzip -o -j src/postgres/generators/data/external_codesets.zip -d src/postgres/generators/data
+          # The zip contains exactly one .xlsx file, named after whatever
+          # quarter/version is currently published (e.g.
+          # 1Q2026_externalcodesets_v1.xlsx) -- rename it to the fixed name
+          # generate_sql.py expects.
+          xlsx_file=$(find src/postgres/generators/data -maxdepth 1 -iname '*.xlsx' -print -quit)
+          if [ -z "$xlsx_file" ]; then
+            echo "No .xlsx file found inside the downloaded External Code Sets zip" >&2
+            exit 1
+          fi
+          mv "$xlsx_file" src/postgres/generators/data/external_codesets.xlsx
+
+      - name: Regenerate 10.2 Message Datatypes
+        run: python3 src/postgres/generators/generate_sql.py
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- src/postgres/schema/10.2_message_datatypes.sql; then
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
+          else
+            echo "changed=true" >> "${GITHUB_OUTPUT}"
+          fi
+
+      - name: Deploy regenerated schema
+        if: steps.diff.outputs.changed == 'true'
+        working-directory: src/postgres/schema
+        run: psql -v ON_ERROR_STOP=1 -f 00_deploy_all.sql
+
+      - name: Run test suite against regenerated schema
+        if: steps.diff.outputs.changed == 'true'
+        working-directory: src/postgres/schema/tests
+        run: psql -v ON_ERROR_STOP=1 -f run_all_tests.sql
+
+      - name: Create pull request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: src/postgres/schema/10.2_message_datatypes.sql
+          branch: automated/refresh-10-2-external-codes
+          delete-branch: true
+          title: 'chore(schema): refresh 10.2 external code sets seed data'
+          commit-message: 'chore(schema): refresh 10.2 external code sets seed data'
+          body: >
+            Automated monthly refresh of `10.2_message_datatypes.sql` from the
+            latest ISO 4217 currency codes, ISO 3166-1 country codes, and ISO
+            20022 External Code Sets registry. The regenerated schema was
+            deployed and the full test suite (`run_all_tests.sql`) ran clean
+            against it before this PR was opened.
+
+
+            Review the diff for anything beyond routine code/name additions
+            (e.g. an unexpected structural change) before merging.
+          labels: |
+            schema-refresh
+
+      - name: Open issue on failure
+        if: failure()
+        uses: actions/github-script@v9
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Automated 10.2 external code sets refresh failed',
+              body: [
+                'The scheduled refresh of `10.2_message_datatypes.sql` failed.',
+                '',
+                `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+                '',
+                'Common causes: a source URL changed or is temporarily unreachable',
+                '(ISO 4217/3166 CSVs from datahub.io, or the External Code Sets zip',
+                'from iso20022.org), or the regenerated schema failed deploy/test.',
+                'Check the run logs for which step failed.'
+              ].join('\n'),
+              labels: ['schema-refresh']
+            })

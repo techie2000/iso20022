@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --no-install markdownlint-cli2 --config .markdownlint-cli2.yaml *)",
+      "Bash(command -v pdftotext)",
+      "Bash(pdftotext -v)"
+    ]
+  }
+}

@@ -1,3 +1,9 @@
 # Ignore transient workspace artifacts
 .tmp/**
 **/.tmp/**
+
+# Extracted MDR spec text: kept verbatim (fixed-width tables, inline XML
+# tags) for line-accurate diffing against future spec revisions, not
+# hand-authored prose -- see src/postgres/generators/README.md.
+docs/internal/10.1_message_components_spec.md
+docs/internal/10.2_message_datatypes_spec.md

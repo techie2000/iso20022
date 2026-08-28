@@ -1,6 +1,7 @@
 autofetch
 Claude
 Cowork
+diffable
 elif
 esac
 frontmatter
@@ -13,7 +14,9 @@ ilograph
 Ilograph
 mktemp
 mojibake
+nonnulls
 pathlib
+pdftotext
 pgsql
 pipefail
 postgres
@@ -23,6 +26,7 @@ pycache
 readback
 returncode
 setext
+sometype
 sslmode
 toplevel
 websearch

@@ -94,4 +94,73 @@ BEGIN
     RAISE NOTICE 'PASS: PartyIdentification272 full nested build';
 END $$;
 
+-- OtherContact1 required-field check
+DO $$
+DECLARE o public."OtherContact1";
+BEGIN
+    o := ROW('EMAL', 'ops@example.com');
+    ASSERT public.validate_other_contact1(o), 'should accept when ChannelType is set';
+    o := ROW(NULL, 'ops@example.com');
+    ASSERT NOT public.validate_other_contact1(o), 'should reject when ChannelType is missing';
+    RAISE NOTICE 'PASS: OtherContact1';
+END $$;
+
+-- *** Regression test for the composite NULL-semantics bug ***
+-- AddressType3Choice: Proprietary is a GenericIdentification30, which has an
+-- optional SchemeName sub-field. A realistic populated value sets only
+-- Identification/Issuer (the [1..1] fields), leaving SchemeName null -- the
+-- same partially-populated-composite shape that broke plain IS NOT NULL.
+DO $$
+DECLARE prop public."GenericIdentification30"; a public."AddressType3Choice";
+BEGIN
+    prop := ROW('SEPA', 'ISO', NULL);
+    a := ROW(NULL, prop);
+    ASSERT public.validate_address_type3_choice(a),
+        'REGRESSION: AddressType3Choice must accept a Proprietary GenericIdentification30 '
+        'with SchemeName left null -- if this fails, the num_nonnulls()-based '
+        'branch_populated_expr() fix has likely been reverted to a plain IS NOT NULL check.';
+    a := ROW('ADDR', NULL);
+    ASSERT public.validate_address_type3_choice(a), 'should accept the Code branch alone';
+    a := ROW('ADDR', prop);
+    ASSERT NOT public.validate_address_type3_choice(a), 'should reject both branches set';
+    RAISE NOTICE 'PASS: AddressType3Choice (composite NULL-semantics regression test)';
+END $$;
+
+-- OrganisationIdentificationSchemeName1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE s public."OrganisationIdentificationSchemeName1Choice";
+BEGIN
+    s := ROW('BANK', NULL);
+    ASSERT public.validate_organisation_identification_scheme_name1_choice(s), 'should accept the Code branch alone';
+    s := ROW(NULL, 'Custom scheme');
+    ASSERT public.validate_organisation_identification_scheme_name1_choice(s), 'should accept the Proprietary branch alone';
+    s := ROW('BANK', 'Custom scheme');
+    ASSERT NOT public.validate_organisation_identification_scheme_name1_choice(s), 'should reject both branches set';
+    RAISE NOTICE 'PASS: OrganisationIdentificationSchemeName1Choice';
+END $$;
+
+-- GenericPersonIdentification2 required-field check
+DO $$
+DECLARE g public."GenericPersonIdentification2";
+BEGIN
+    g := ROW('P123456', NULL, NULL);
+    ASSERT public.validate_generic_person_identification2(g), 'should accept when Identification is set';
+    g := ROW(NULL, NULL, 'IssuerX');
+    ASSERT NOT public.validate_generic_person_identification2(g), 'should reject when Identification is missing';
+    RAISE NOTICE 'PASS: GenericPersonIdentification2';
+END $$;
+
+-- PersonIdentificationSchemeName1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE s public."PersonIdentificationSchemeName1Choice";
+BEGIN
+    s := ROW('CCPT', NULL);
+    ASSERT public.validate_person_identification_scheme_name1_choice(s), 'should accept the Code branch alone';
+    s := ROW(NULL, 'Custom scheme');
+    ASSERT public.validate_person_identification_scheme_name1_choice(s), 'should accept the Proprietary branch alone';
+    s := ROW('CCPT', 'Custom scheme');
+    ASSERT NOT public.validate_person_identification_scheme_name1_choice(s), 'should reject both branches set';
+    RAISE NOTICE 'PASS: PersonIdentificationSchemeName1Choice';
+END $$;
+
 \echo 'All 10.1 File 2 tests passed.'

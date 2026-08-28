@@ -99,4 +99,195 @@ BEGIN
     RAISE NOTICE 'PASS: AmountType4Choice';
 END $$;
 
+-- GenericIdentification3 required-field check
+DO $$
+DECLARE g public."GenericIdentification3";
+BEGIN
+    g := ROW('ABC123', 'ISO');
+    ASSERT public.validate_generic_identification3(g), 'should accept when Identification is set';
+    g := ROW(NULL, 'ISO');
+    ASSERT NOT public.validate_generic_identification3(g), 'should reject when Identification is missing';
+    RAISE NOTICE 'PASS: GenericIdentification3';
+END $$;
+
+-- OriginalGroupInformation27 required-field check
+DO $$
+DECLARE g public."OriginalGroupInformation27";
+BEGIN
+    g := ROW('MSG001', 'pacs.008.001.08', NULL, NULL, NULL);
+    ASSERT public.validate_original_group_information27(g), 'should accept when both mandatory fields are set';
+    g := ROW(NULL, 'pacs.008.001.08', NULL, NULL, NULL);
+    ASSERT NOT public.validate_original_group_information27(g), 'should reject when OriginalMessageIdentification is missing';
+    g := ROW('MSG001', NULL, NULL, NULL, NULL);
+    ASSERT NOT public.validate_original_group_information27(g), 'should reject when OriginalMessageNameIdentification is missing';
+    RAISE NOTICE 'PASS: OriginalGroupInformation27';
+END $$;
+
+-- OriginalGroupInformation29 required-field check
+DO $$
+DECLARE g public."OriginalGroupInformation29";
+BEGIN
+    g := ROW('MSG001', 'pacs.003.001.01', NULL);
+    ASSERT public.validate_original_group_information29(g), 'should accept when both mandatory fields are set';
+    g := ROW('MSG001', NULL, NULL);
+    ASSERT NOT public.validate_original_group_information29(g), 'should reject when OriginalMessageNameIdentification is missing';
+    RAISE NOTICE 'PASS: OriginalGroupInformation29';
+END $$;
+
+-- OriginalBusinessQuery1 required-field check
+DO $$
+DECLARE q public."OriginalBusinessQuery1";
+BEGIN
+    q := ROW('QRY001', NULL, NULL);
+    ASSERT public.validate_original_business_query1(q), 'should accept when MessageIdentification is set';
+    q := ROW(NULL, 'camt.060.001.05', NULL);
+    ASSERT NOT public.validate_original_business_query1(q), 'should reject when MessageIdentification is missing';
+    RAISE NOTICE 'PASS: OriginalBusinessQuery1';
+END $$;
+
+-- Authorisation1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE a public."Authorisation1Choice";
+BEGIN
+    a := ROW('AUTH', NULL);
+    ASSERT public.validate_authorisation1_choice(a), 'should accept the Code branch alone';
+    a := ROW(NULL, 'Custom approval');
+    ASSERT public.validate_authorisation1_choice(a), 'should accept the Proprietary branch alone';
+    a := ROW('AUTH', 'Custom approval');
+    ASSERT NOT public.validate_authorisation1_choice(a), 'should reject both branches set';
+    a := ROW(NULL, NULL);
+    ASSERT NOT public.validate_authorisation1_choice(a), 'should reject zero branches set';
+    RAISE NOTICE 'PASS: Authorisation1Choice';
+END $$;
+
+-- SupplementaryData1 required-field check
+DO $$
+DECLARE s public."SupplementaryData1";
+BEGIN
+    s := ROW(NULL, '<Xtn>...</Xtn>');
+    ASSERT public.validate_supplementary_data1(s), 'should accept when Envelope is set';
+    s := ROW('/Doc/Xtn', NULL);
+    ASSERT NOT public.validate_supplementary_data1(s), 'should reject when Envelope is missing';
+    RAISE NOTICE 'PASS: SupplementaryData1';
+END $$;
+
+-- Purpose2Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE p public."Purpose2Choice";
+BEGIN
+    p := ROW('CASH', NULL);
+    ASSERT public.validate_purpose2_choice(p), 'should accept the Code branch alone';
+    p := ROW(NULL, 'Ad-hoc reason');
+    ASSERT public.validate_purpose2_choice(p), 'should accept the Proprietary branch alone';
+    p := ROW('CASH', 'Ad-hoc reason');
+    ASSERT NOT public.validate_purpose2_choice(p), 'should reject both branches set';
+    RAISE NOTICE 'PASS: Purpose2Choice';
+END $$;
+
+-- NumberOfTransactionsPerStatus5 required-field check
+DO $$
+DECLARE n public."NumberOfTransactionsPerStatus5";
+BEGIN
+    n := ROW('15', 'ACSC', NULL);
+    ASSERT public.validate_number_of_transactions_per_status5(n), 'should accept when both mandatory fields are set';
+    n := ROW(NULL, 'ACSC', NULL);
+    ASSERT NOT public.validate_number_of_transactions_per_status5(n), 'should reject when DetailedNumberOfTransactions is missing';
+    n := ROW('15', NULL, NULL);
+    ASSERT NOT public.validate_number_of_transactions_per_status5(n), 'should reject when DetailedStatus is missing';
+    RAISE NOTICE 'PASS: NumberOfTransactionsPerStatus5';
+END $$;
+
+-- ClearingSystemIdentification2Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE c public."ClearingSystemIdentification2Choice";
+BEGIN
+    c := ROW('SWIF', NULL);
+    ASSERT public.validate_clearing_system_identification2_choice(c), 'should accept the Code branch alone';
+    c := ROW(NULL, 'PROP1');
+    ASSERT public.validate_clearing_system_identification2_choice(c), 'should accept the Proprietary branch alone';
+    c := ROW('SWIF', 'PROP1');
+    ASSERT NOT public.validate_clearing_system_identification2_choice(c), 'should reject both branches set';
+    RAISE NOTICE 'PASS: ClearingSystemIdentification2Choice';
+END $$;
+
+-- MandateClassification1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE m public."MandateClassification1Choice";
+BEGIN
+    m := ROW('FIXE', NULL);
+    ASSERT public.validate_mandate_classification1_choice(m), 'should accept the Code branch alone';
+    m := ROW(NULL, 'Custom classification');
+    ASSERT public.validate_mandate_classification1_choice(m), 'should accept the Proprietary branch alone';
+    m := ROW('FIXE', 'Custom classification');
+    ASSERT NOT public.validate_mandate_classification1_choice(m), 'should reject both branches set';
+    m := ROW(NULL, NULL);
+    ASSERT NOT public.validate_mandate_classification1_choice(m), 'should reject zero branches set';
+    RAISE NOTICE 'PASS: MandateClassification1Choice';
+END $$;
+
+-- ServiceLevel8Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE s public."ServiceLevel8Choice";
+BEGIN
+    s := ROW('SEPA', NULL);
+    ASSERT public.validate_service_level8_choice(s), 'should accept the Code branch alone';
+    s := ROW(NULL, 'Custom level');
+    ASSERT public.validate_service_level8_choice(s), 'should accept the Proprietary branch alone';
+    s := ROW('SEPA', 'Custom level');
+    ASSERT NOT public.validate_service_level8_choice(s), 'should reject both branches set';
+    RAISE NOTICE 'PASS: ServiceLevel8Choice';
+END $$;
+
+-- LocalInstrument2Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE l public."LocalInstrument2Choice";
+BEGIN
+    l := ROW('CORE', NULL);
+    ASSERT public.validate_local_instrument2_choice(l), 'should accept the Code branch alone';
+    l := ROW(NULL, 'Custom instrument');
+    ASSERT public.validate_local_instrument2_choice(l), 'should accept the Proprietary branch alone';
+    l := ROW('CORE', 'Custom instrument');
+    ASSERT NOT public.validate_local_instrument2_choice(l), 'should reject both branches set';
+    RAISE NOTICE 'PASS: LocalInstrument2Choice';
+END $$;
+
+-- CategoryPurpose1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE c public."CategoryPurpose1Choice";
+BEGIN
+    c := ROW('CASH', NULL);
+    ASSERT public.validate_category_purpose1_choice(c), 'should accept the Code branch alone';
+    c := ROW(NULL, 'Custom category');
+    ASSERT public.validate_category_purpose1_choice(c), 'should accept the Proprietary branch alone';
+    c := ROW('CASH', 'Custom category');
+    ASSERT NOT public.validate_category_purpose1_choice(c), 'should reject both branches set';
+    RAISE NOTICE 'PASS: CategoryPurpose1Choice';
+END $$;
+
+-- FrequencyPeriod1 required-field check
+DO $$
+DECLARE f public."FrequencyPeriod1";
+BEGIN
+    f := ROW('MNTH', 3);
+    ASSERT public.validate_frequency_period1(f), 'should accept when both mandatory fields are set';
+    f := ROW(NULL, 3);
+    ASSERT NOT public.validate_frequency_period1(f), 'should reject when Type is missing';
+    f := ROW('MNTH', NULL);
+    ASSERT NOT public.validate_frequency_period1(f), 'should reject when CountPerPeriod is missing';
+    RAISE NOTICE 'PASS: FrequencyPeriod1';
+END $$;
+
+-- FrequencyAndMoment1 required-field check
+DO $$
+DECLARE f public."FrequencyAndMoment1";
+BEGIN
+    f := ROW('MNTH', '15');
+    ASSERT public.validate_frequency_and_moment1(f), 'should accept when both mandatory fields are set';
+    f := ROW(NULL, '15');
+    ASSERT NOT public.validate_frequency_and_moment1(f), 'should reject when Type is missing';
+    f := ROW('MNTH', NULL);
+    ASSERT NOT public.validate_frequency_and_moment1(f), 'should reject when PointInTime is missing';
+    RAISE NOTICE 'PASS: FrequencyAndMoment1';
+END $$;
+
 \echo 'All 10.1 File 1 tests passed.'

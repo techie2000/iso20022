@@ -50,4 +50,19 @@ BEGIN
     RAISE NOTICE 'PASS: RegulatoryReporting3 (repeatable array of composites)';
 END $$;
 
+-- MandateSetupReason1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE r public."MandateSetupReason1Choice";
+BEGIN
+    r := ROW('RREQ', NULL);
+    ASSERT public.validate_mandate_setup_reason1_choice(r), 'should accept the Code branch alone';
+    r := ROW(NULL, 'Custom reason');
+    ASSERT public.validate_mandate_setup_reason1_choice(r), 'should accept the Proprietary branch alone';
+    r := ROW('RREQ', 'Custom reason');
+    ASSERT NOT public.validate_mandate_setup_reason1_choice(r), 'should reject both branches set';
+    r := ROW(NULL, NULL);
+    ASSERT NOT public.validate_mandate_setup_reason1_choice(r), 'should reject zero branches set';
+    RAISE NOTICE 'PASS: MandateSetupReason1Choice';
+END $$;
+
 \echo 'All 10.1 File 4 tests passed.'

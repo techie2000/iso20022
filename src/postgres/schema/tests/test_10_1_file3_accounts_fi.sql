@@ -75,4 +75,100 @@ BEGIN
     RAISE NOTICE 'PASS: BranchAndFinancialInstitutionIdentification8 (composite NULL-semantics regression test)';
 END $$;
 
+-- AccountSchemeName1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE s public."AccountSchemeName1Choice";
+BEGIN
+    s := ROW('BBAN', NULL);
+    ASSERT public.validate_account_scheme_name1_choice(s), 'should accept the Code branch alone';
+    s := ROW(NULL, 'Custom scheme');
+    ASSERT public.validate_account_scheme_name1_choice(s), 'should accept the Proprietary branch alone';
+    s := ROW('BBAN', 'Custom scheme');
+    ASSERT NOT public.validate_account_scheme_name1_choice(s), 'should reject both branches set';
+    RAISE NOTICE 'PASS: AccountSchemeName1Choice';
+END $$;
+
+-- GenericAccountIdentification1 required-field check
+DO $$
+DECLARE g public."GenericAccountIdentification1";
+BEGIN
+    g := ROW('ACCT123', NULL, NULL);
+    ASSERT public.validate_generic_account_identification1(g), 'should accept when Identification is set';
+    g := ROW(NULL, NULL, 'IssuerX');
+    ASSERT NOT public.validate_generic_account_identification1(g), 'should reject when Identification is missing';
+    RAISE NOTICE 'PASS: GenericAccountIdentification1';
+END $$;
+
+-- CashAccountType2Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE c public."CashAccountType2Choice";
+BEGIN
+    c := ROW('CACC', NULL);
+    ASSERT public.validate_cash_account_type2_choice(c), 'should accept the Code branch alone';
+    c := ROW(NULL, 'Custom type');
+    ASSERT public.validate_cash_account_type2_choice(c), 'should accept the Proprietary branch alone';
+    c := ROW('CACC', 'Custom type');
+    ASSERT NOT public.validate_cash_account_type2_choice(c), 'should reject both branches set';
+    RAISE NOTICE 'PASS: CashAccountType2Choice';
+END $$;
+
+-- ProxyAccountType1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE p public."ProxyAccountType1Choice";
+BEGIN
+    p := ROW('EMAL', NULL);
+    ASSERT public.validate_proxy_account_type1_choice(p), 'should accept the Code branch alone';
+    p := ROW(NULL, 'Custom proxy type');
+    ASSERT public.validate_proxy_account_type1_choice(p), 'should accept the Proprietary branch alone';
+    p := ROW('EMAL', 'Custom proxy type');
+    ASSERT NOT public.validate_proxy_account_type1_choice(p), 'should reject both branches set';
+    RAISE NOTICE 'PASS: ProxyAccountType1Choice';
+END $$;
+
+-- ProxyAccountIdentification1 required-field check
+DO $$
+DECLARE p public."ProxyAccountIdentification1";
+BEGIN
+    p := ROW(NULL, 'someone@example.com');
+    ASSERT public.validate_proxy_account_identification1(p), 'should accept when Identification is set';
+    p := ROW(NULL, NULL);
+    ASSERT NOT public.validate_proxy_account_identification1(p), 'should reject when Identification is missing';
+    RAISE NOTICE 'PASS: ProxyAccountIdentification1';
+END $$;
+
+-- ClearingSystemMemberIdentification2 required-field check
+DO $$
+DECLARE c public."ClearingSystemMemberIdentification2";
+BEGIN
+    c := ROW(NULL, 'MEMBER01');
+    ASSERT public.validate_clearing_system_member_identification2(c), 'should accept when MemberIdentification is set';
+    c := ROW(NULL, NULL);
+    ASSERT NOT public.validate_clearing_system_member_identification2(c), 'should reject when MemberIdentification is missing';
+    RAISE NOTICE 'PASS: ClearingSystemMemberIdentification2';
+END $$;
+
+-- FinancialIdentificationSchemeName1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE s public."FinancialIdentificationSchemeName1Choice";
+BEGIN
+    s := ROW('BANK', NULL);
+    ASSERT public.validate_financial_identification_scheme_name1_choice(s), 'should accept the Code branch alone';
+    s := ROW(NULL, 'Custom scheme');
+    ASSERT public.validate_financial_identification_scheme_name1_choice(s), 'should accept the Proprietary branch alone';
+    s := ROW('BANK', 'Custom scheme');
+    ASSERT NOT public.validate_financial_identification_scheme_name1_choice(s), 'should reject both branches set';
+    RAISE NOTICE 'PASS: FinancialIdentificationSchemeName1Choice';
+END $$;
+
+-- GenericFinancialIdentification1 required-field check
+DO $$
+DECLARE g public."GenericFinancialIdentification1";
+BEGIN
+    g := ROW('FI123', NULL, NULL);
+    ASSERT public.validate_generic_financial_identification1(g), 'should accept when Identification is set';
+    g := ROW(NULL, NULL, 'IssuerX');
+    ASSERT NOT public.validate_generic_financial_identification1(g), 'should reject when Identification is missing';
+    RAISE NOTICE 'PASS: GenericFinancialIdentification1';
+END $$;
+
 \echo 'All 10.1 File 3 tests passed.'

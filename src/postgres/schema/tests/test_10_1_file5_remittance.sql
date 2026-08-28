@@ -130,4 +130,159 @@ BEGIN
     RAISE NOTICE 'PASS: StructuredRemittanceInformation18 / RemittanceInformation22 (top-level assembly)';
 END $$;
 
+-- DocumentType2Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE d public."DocumentType2Choice";
+BEGIN
+    d := ROW('AROI', NULL);
+    ASSERT public.validate_document_type2_choice(d), 'should accept the Code branch alone';
+    d := ROW(NULL, 'Custom document type');
+    ASSERT public.validate_document_type2_choice(d), 'should accept the Proprietary branch alone';
+    d := ROW('AROI', 'Custom document type');
+    ASSERT NOT public.validate_document_type2_choice(d), 'should reject both branches set';
+    RAISE NOTICE 'PASS: DocumentType2Choice';
+END $$;
+
+-- DateType2Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE d public."DateType2Choice";
+BEGIN
+    d := ROW('INDA', NULL);
+    ASSERT public.validate_date_type2_choice(d), 'should accept the Code branch alone';
+    d := ROW(NULL, 'Custom date type');
+    ASSERT public.validate_date_type2_choice(d), 'should accept the Proprietary branch alone';
+    d := ROW('INDA', 'Custom date type');
+    ASSERT NOT public.validate_date_type2_choice(d), 'should reject both branches set';
+    RAISE NOTICE 'PASS: DateType2Choice';
+END $$;
+
+-- DateAndType1 required-field check (Type is itself a composite {Or}/{Or} choice)
+DO $$
+DECLARE t public."DateType2Choice"; d public."DateAndType1";
+BEGIN
+    t := ROW('INDA', NULL);
+    d := ROW(t, '2026-01-15');
+    ASSERT public.validate_date_and_type1(d), 'should accept when both mandatory fields are set';
+    d := ROW(t, NULL);
+    ASSERT NOT public.validate_date_and_type1(d), 'should reject when Date is missing';
+    d := ROW(ROW(NULL, NULL)::public."DateType2Choice", '2026-01-15');
+    ASSERT NOT public.validate_date_and_type1(d), 'should reject when Type has neither branch set';
+    RAISE NOTICE 'PASS: DateAndType1';
+END $$;
+
+-- DocumentLineType1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE d public."DocumentLineType1Choice";
+BEGIN
+    d := ROW('ADPI', NULL);
+    ASSERT public.validate_document_line_type1_choice(d), 'should accept the Code branch alone';
+    d := ROW(NULL, 'Custom line type');
+    ASSERT public.validate_document_line_type1_choice(d), 'should accept the Proprietary branch alone';
+    d := ROW('ADPI', 'Custom line type');
+    ASSERT NOT public.validate_document_line_type1_choice(d), 'should reject both branches set';
+    RAISE NOTICE 'PASS: DocumentLineType1Choice';
+END $$;
+
+-- DocumentLineType1 required-field check (CodeOrProprietary is a composite {Or}/{Or} choice)
+DO $$
+DECLARE c public."DocumentLineType1Choice"; d public."DocumentLineType1";
+BEGIN
+    c := ROW('ADPI', NULL);
+    d := ROW(c, NULL);
+    ASSERT public.validate_document_line_type1(d), 'should accept when CodeOrProprietary has a branch set';
+    d := ROW(ROW(NULL, NULL)::public."DocumentLineType1Choice", 'IssuerX');
+    ASSERT NOT public.validate_document_line_type1(d), 'should reject when CodeOrProprietary has neither branch set';
+    RAISE NOTICE 'PASS: DocumentLineType1';
+END $$;
+
+-- DocumentAmountType1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE d public."DocumentAmountType1Choice";
+BEGIN
+    d := ROW('CHAR', NULL);
+    ASSERT public.validate_document_amount_type1_choice(d), 'should accept the Code branch alone';
+    d := ROW(NULL, 'Custom amount type');
+    ASSERT public.validate_document_amount_type1_choice(d), 'should accept the Proprietary branch alone';
+    d := ROW('CHAR', 'Custom amount type');
+    ASSERT NOT public.validate_document_amount_type1_choice(d), 'should reject both branches set';
+    RAISE NOTICE 'PASS: DocumentAmountType1Choice';
+END $$;
+
+-- DocumentAmount1 required-field check (both fields are optional-subfield composites)
+DO $$
+DECLARE t public."DocumentAmountType1Choice"; amt public."ActiveOrHistoricCurrencyAndAmount"; d public."DocumentAmount1";
+BEGIN
+    t := ROW('CHAR', NULL);
+    amt := ROW(100.00, 'USD');
+    d := ROW(t, amt);
+    ASSERT public.validate_document_amount1(d), 'should accept when both mandatory fields are set';
+    d := ROW(ROW(NULL, NULL)::public."DocumentAmountType1Choice", amt);
+    ASSERT NOT public.validate_document_amount1(d), 'should reject when Type has neither branch set';
+    d := ROW(t, ROW(NULL, NULL)::public."ActiveOrHistoricCurrencyAndAmount");
+    ASSERT NOT public.validate_document_amount1(d), 'should reject when Amount is entirely unset';
+    RAISE NOTICE 'PASS: DocumentAmount1';
+END $$;
+
+-- DocumentAdjustment1 required-field check
+DO $$
+DECLARE amt public."ActiveOrHistoricCurrencyAndAmount"; d public."DocumentAdjustment1";
+BEGIN
+    amt := ROW(50.00, 'GBP');
+    d := ROW(amt, 'CRDT', NULL, NULL);
+    ASSERT public.validate_document_adjustment1(d), 'should accept when Amount is set';
+    d := ROW(ROW(NULL, NULL)::public."ActiveOrHistoricCurrencyAndAmount", 'CRDT', NULL, NULL);
+    ASSERT NOT public.validate_document_adjustment1(d), 'should reject when Amount is entirely unset';
+    RAISE NOTICE 'PASS: DocumentAdjustment1';
+END $$;
+
+-- CreditorReferenceType2Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE c public."CreditorReferenceType2Choice";
+BEGIN
+    c := ROW('DISP', NULL);
+    ASSERT public.validate_creditor_reference_type2_choice(c), 'should accept the Code branch alone';
+    c := ROW(NULL, 'Custom reference type');
+    ASSERT public.validate_creditor_reference_type2_choice(c), 'should accept the Proprietary branch alone';
+    c := ROW('DISP', 'Custom reference type');
+    ASSERT NOT public.validate_creditor_reference_type2_choice(c), 'should reject both branches set';
+    RAISE NOTICE 'PASS: CreditorReferenceType2Choice';
+END $$;
+
+-- CreditorReferenceType3 required-field check (CodeOrProprietary is a composite {Or}/{Or} choice)
+DO $$
+DECLARE c public."CreditorReferenceType2Choice"; t public."CreditorReferenceType3";
+BEGIN
+    c := ROW('DISP', NULL);
+    t := ROW(c, NULL);
+    ASSERT public.validate_creditor_reference_type3(t), 'should accept when CodeOrProprietary has a branch set';
+    t := ROW(ROW(NULL, NULL)::public."CreditorReferenceType2Choice", 'IssuerX');
+    ASSERT NOT public.validate_creditor_reference_type3(t), 'should reject when CodeOrProprietary has neither branch set';
+    RAISE NOTICE 'PASS: CreditorReferenceType3';
+END $$;
+
+-- GarnishmentType1Choice: exactly-one-of-2 exclusive choice
+DO $$
+DECLARE g public."GarnishmentType1Choice";
+BEGIN
+    g := ROW('GNCS', NULL);
+    ASSERT public.validate_garnishment_type1_choice(g), 'should accept the Code branch alone';
+    g := ROW(NULL, 'Custom garnishment type');
+    ASSERT public.validate_garnishment_type1_choice(g), 'should accept the Proprietary branch alone';
+    g := ROW('GNCS', 'Custom garnishment type');
+    ASSERT NOT public.validate_garnishment_type1_choice(g), 'should reject both branches set';
+    RAISE NOTICE 'PASS: GarnishmentType1Choice';
+END $$;
+
+-- GarnishmentType1 required-field check (CodeOrProprietary is a composite {Or}/{Or} choice)
+DO $$
+DECLARE c public."GarnishmentType1Choice"; g public."GarnishmentType1";
+BEGIN
+    c := ROW('GNCS', NULL);
+    g := ROW(c, NULL);
+    ASSERT public.validate_garnishment_type1(g), 'should accept when CodeOrProprietary has a branch set';
+    g := ROW(ROW(NULL, NULL)::public."GarnishmentType1Choice", 'IssuerX');
+    ASSERT NOT public.validate_garnishment_type1(g), 'should reject when CodeOrProprietary has neither branch set';
+    RAISE NOTICE 'PASS: GarnishmentType1';
+END $$;
+
 \echo 'All 10.1 File 5 tests passed.'

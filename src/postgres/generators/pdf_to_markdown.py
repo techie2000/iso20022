@@ -19,8 +19,8 @@ Example (reproduces this project's two Markdown files):
     python3 pdf_to_markdown.py spec.pdf 743 844 10.1_message_components_spec.md \\
         "ISO 20022 MDR Part 2 -- Section 10.1 Message Components"
 
-Design choices (see README.md "Spec extraction" section for the full
-rationale):
+Design choices (see this directory's README.md "Spec extraction" section
+for the full rationale, checked-in file locations, and known limitations):
   - Page header/footer boilerplate is stripped (it repeats on every page
     and would otherwise pollute every future diff with pure noise).
   - Section numbering (10, 10.1, 10.1.1, ...) becomes Markdown ATX
@@ -89,10 +89,14 @@ LABEL_RE = re.compile(
 def convert_to_markdown(text, title):
     lines = text.split('\n')
     out = [f'# {title}', '']
+    out.append('<!-- markdownlint-disable -->')
+    out.append('<!-- Verbatim spec extraction: fixed-width tables and inline XML tags '
+                'are preserved on purpose for line-accurate diffing, not linted as prose. -->')
+    out.append('')
     out.append('> Extracted from the source PDF with `pdf_to_markdown.py`. '
                 'Element tables are preserved verbatim in fenced code blocks '
                 'rather than reformatted, so future diffs stay line-accurate. '
-                'See README.md "Spec extraction" for methodology.')
+                'See src/postgres/generators/README.md "Spec extraction" for methodology.')
     out.append('')
 
     in_table = False

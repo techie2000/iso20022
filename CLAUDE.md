@@ -124,10 +124,12 @@ the file you edited.
 ## Keeping this in sync with future ISO spec revisions
 
 `pdf_to_markdown.py` converts MDR PDF pages into diffable Markdown (already run for pages 743–869, checked
-in as `10.1_message_components_spec.md` / `10.2_message_datatypes_spec.md`). When ISO publishes a new MDR
-version: run it again against the new PDF with the same page range, `diff` against the checked-in Markdown,
-and the diff shows exactly what needs auditing in the generators. See the "Spec extraction" section of
-`README.md` for the full rationale and known limitations of the table-detection heuristic.
+in under `docs/internal/` as `10.1_message_components_spec.md` / `10.2_message_datatypes_spec.md`, generated
+from the source PDF at `docs/vendor/ISO20022_MDRPart2_PaymentsClearingAndSettlement_2024_2025_v1.pdf`). When
+ISO publishes a new MDR version: run it again against the new PDF with the same page range, `diff` against
+the checked-in Markdown, and the diff shows exactly what needs auditing in the generators. See the
+"Spec extraction" section of `src/postgres/generators/README.md` for the full rationale and known
+limitations of the table-detection heuristic.
 
 ## Known gaps (see README.md for full detail)
 

@@ -9,6 +9,6 @@
     "bootstrap:package": "pwsh ./scripts/bootstrap-package-name.ps1"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.23.2"
+    "markdownlint-cli2": "^0.24.0"
   }
 }

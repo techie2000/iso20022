@@ -638,7 +638,7 @@ ON CONFLICT ("Code") DO NOTHING;
 -- Seed: CountryCodeValues (ISO 3166-1 alpha-2, official short names)
 INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('AD', 'Andorra', NULL),
-    ('AE', 'United Arab Emirates (the)', NULL),
+    ('AE', 'United Arab Emirates', NULL),
     ('AF', 'Afghanistan', NULL),
     ('AG', 'Antigua and Barbuda', NULL),
     ('AI', 'Anguilla', NULL),
@@ -665,25 +665,25 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('BL', 'Saint Barthélemy', NULL),
     ('BM', 'Bermuda', NULL),
     ('BN', 'Brunei Darussalam', NULL),
-    ('BO', 'Bolivia (Plurinational State of)', NULL),
+    ('BO', 'Bolivia, Plurinational State of', NULL),
     ('BQ', 'Bonaire, Sint Eustatius and Saba', NULL),
     ('BR', 'Brazil', NULL),
-    ('BS', 'Bahamas (The)', NULL),
+    ('BS', 'Bahamas', NULL),
     ('BT', 'Bhutan', NULL),
     ('BV', 'Bouvet Island', NULL),
     ('BW', 'Botswana', NULL),
     ('BY', 'Belarus', NULL),
     ('BZ', 'Belize', NULL),
     ('CA', 'Canada', NULL),
-    ('CC', 'Cocos (Keeling) Islands (the)', NULL),
-    ('CD', 'Congo (the Democratic Republic of the)', NULL)
+    ('CC', 'Cocos (Keeling) Islands', NULL),
+    ('CD', 'Congo, The Democratic Republic of the', NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
-    ('CF', 'Central African Republic (the)', NULL),
-    ('CG', 'Congo (the)', NULL),
+    ('CF', 'Central African Republic', NULL),
+    ('CG', 'Congo', NULL),
     ('CH', 'Switzerland', NULL),
     ('CI', 'Côte d''Ivoire', NULL),
-    ('CK', 'Cook Islands (the)', NULL),
+    ('CK', 'Cook Islands', NULL),
     ('CL', 'Chile', NULL),
     ('CM', 'Cameroon', NULL),
     ('CN', 'China', NULL),
@@ -699,23 +699,23 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('DJ', 'Djibouti', NULL),
     ('DK', 'Denmark', NULL),
     ('DM', 'Dominica', NULL),
-    ('DO', 'Dominican Republic (the)', NULL),
+    ('DO', 'Dominican Republic', NULL),
     ('DZ', 'Algeria', NULL),
     ('EC', 'Ecuador', NULL),
     ('EE', 'Estonia', NULL),
     ('EG', 'Egypt', NULL),
-    ('EH', 'Western Sahara', 'Provisional name per ISO 3166/MA.'),
+    ('EH', 'Western Sahara', NULL),
     ('ER', 'Eritrea', NULL),
     ('ES', 'Spain', NULL),
     ('ET', 'Ethiopia', NULL),
     ('FI', 'Finland', NULL),
     ('FJ', 'Fiji', NULL),
-    ('FK', 'Falkland Islands (the) [Malvinas]', NULL),
-    ('FM', 'Micronesia (Federated States of)', NULL),
-    ('FO', 'Faroe Islands (the)', NULL),
+    ('FK', 'Falkland Islands (Malvinas)', NULL),
+    ('FM', 'Micronesia, Federated States of', NULL),
+    ('FO', 'Faroe Islands', NULL),
     ('FR', 'France', NULL),
     ('GA', 'Gabon', NULL),
-    ('GB', 'United Kingdom of Great Britain and Northern Ireland (the)', NULL),
+    ('GB', 'United Kingdom', NULL),
     ('GD', 'Grenada', NULL),
     ('GE', 'Georgia', NULL),
     ('GF', 'French Guiana', NULL)
@@ -725,7 +725,7 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('GH', 'Ghana', NULL),
     ('GI', 'Gibraltar', NULL),
     ('GL', 'Greenland', NULL),
-    ('GM', 'Gambia (the)', NULL),
+    ('GM', 'Gambia', NULL),
     ('GN', 'Guinea', NULL),
     ('GP', 'Guadeloupe', NULL),
     ('GQ', 'Equatorial Guinea', NULL),
@@ -746,9 +746,9 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('IL', 'Israel', NULL),
     ('IM', 'Isle of Man', NULL),
     ('IN', 'India', NULL),
-    ('IO', 'British Indian Ocean Territory (the)', NULL),
+    ('IO', 'British Indian Ocean Territory', NULL),
     ('IQ', 'Iraq', NULL),
-    ('IR', 'Iran (Islamic Republic of)', NULL),
+    ('IR', 'Iran, Islamic Republic of', NULL),
     ('IS', 'Iceland', NULL),
     ('IT', 'Italy', NULL),
     ('JE', 'Jersey', NULL),
@@ -759,16 +759,16 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('KG', 'Kyrgyzstan', NULL),
     ('KH', 'Cambodia', NULL),
     ('KI', 'Kiribati', NULL),
-    ('KM', 'Comoros (the)', NULL),
+    ('KM', 'Comoros', NULL),
     ('KN', 'Saint Kitts and Nevis', NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
-    ('KP', 'Korea (the Democratic People''s Republic of)', NULL),
-    ('KR', 'Korea (the Republic of)', NULL),
+    ('KP', 'Korea, Democratic People''s Republic of', NULL),
+    ('KR', 'Korea, Republic of', NULL),
     ('KW', 'Kuwait', NULL),
-    ('KY', 'Cayman Islands (the)', NULL),
+    ('KY', 'Cayman Islands', NULL),
     ('KZ', 'Kazakhstan', NULL),
-    ('LA', 'Lao People''s Democratic Republic (the)', NULL),
+    ('LA', 'Lao People''s Democratic Republic', NULL),
     ('LB', 'Lebanon', NULL),
     ('LC', 'Saint Lucia', NULL),
     ('LI', 'Liechtenstein', NULL),
@@ -781,17 +781,17 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('LY', 'Libya', NULL),
     ('MA', 'Morocco', NULL),
     ('MC', 'Monaco', NULL),
-    ('MD', 'Moldova (the Republic of)', NULL),
+    ('MD', 'Moldova, Republic of', NULL),
     ('ME', 'Montenegro', NULL),
     ('MF', 'Saint Martin (French part)', NULL),
     ('MG', 'Madagascar', NULL),
-    ('MH', 'Marshall Islands (the)', NULL),
+    ('MH', 'Marshall Islands', NULL),
     ('MK', 'North Macedonia', NULL),
     ('ML', 'Mali', NULL),
     ('MM', 'Myanmar', NULL),
     ('MN', 'Mongolia', NULL),
     ('MO', 'Macao', NULL),
-    ('MP', 'Northern Mariana Islands (the)', NULL),
+    ('MP', 'Northern Mariana Islands', NULL),
     ('MQ', 'Martinique', NULL),
     ('MR', 'Mauritania', NULL),
     ('MS', 'Montserrat', NULL),
@@ -806,11 +806,11 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('NC', 'New Caledonia', NULL),
-    ('NE', 'Niger (the)', NULL),
+    ('NE', 'Niger', NULL),
     ('NF', 'Norfolk Island', NULL),
     ('NG', 'Nigeria', NULL),
     ('NI', 'Nicaragua', NULL),
-    ('NL', 'Netherlands (Kingdom of the)', NULL),
+    ('NL', 'Netherlands', NULL),
     ('NO', 'Norway', NULL),
     ('NP', 'Nepal', NULL),
     ('NR', 'Nauru', NULL),
@@ -821,7 +821,7 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('PE', 'Peru', NULL),
     ('PF', 'French Polynesia', NULL),
     ('PG', 'Papua New Guinea', NULL),
-    ('PH', 'Philippines (the)', NULL),
+    ('PH', 'Philippines', NULL),
     ('PK', 'Pakistan', NULL),
     ('PL', 'Poland', NULL),
     ('PM', 'Saint Pierre and Miquelon', NULL),
@@ -835,12 +835,12 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('RE', 'Réunion', NULL),
     ('RO', 'Romania', NULL),
     ('RS', 'Serbia', NULL),
-    ('RU', 'Russian Federation (the)', NULL),
+    ('RU', 'Russian Federation', NULL),
     ('RW', 'Rwanda', NULL),
     ('SA', 'Saudi Arabia', NULL),
     ('SB', 'Solomon Islands', NULL),
     ('SC', 'Seychelles', NULL),
-    ('SD', 'Sudan (the)', NULL),
+    ('SD', 'Sudan', NULL),
     ('SE', 'Sweden', NULL),
     ('SG', 'Singapore', NULL),
     ('SH', 'Saint Helena, Ascension and Tristan da Cunha', NULL),
@@ -858,11 +858,11 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('ST', 'Sao Tome and Principe', NULL),
     ('SV', 'El Salvador', NULL),
     ('SX', 'Sint Maarten (Dutch part)', NULL),
-    ('SY', 'Syrian Arab Republic (the)', NULL),
+    ('SY', 'Syrian Arab Republic', NULL),
     ('SZ', 'Eswatini', NULL),
-    ('TC', 'Turks and Caicos Islands (the)', NULL),
+    ('TC', 'Turks and Caicos Islands', NULL),
     ('TD', 'Chad', NULL),
-    ('TF', 'French Southern Territories (the)', NULL),
+    ('TF', 'French Southern Territories', NULL),
     ('TG', 'Togo', NULL),
     ('TH', 'Thailand', NULL),
     ('TJ', 'Tajikistan', NULL),
@@ -874,19 +874,19 @@ INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('TR', 'Türkiye', NULL),
     ('TT', 'Trinidad and Tobago', NULL),
     ('TV', 'Tuvalu', NULL),
-    ('TW', 'Taiwan (Province of China)', NULL),
-    ('TZ', 'Tanzania, the United Republic of', NULL),
+    ('TW', 'Taiwan, Province of China', NULL),
+    ('TZ', 'Tanzania, United Republic of', NULL),
     ('UA', 'Ukraine', NULL),
     ('UG', 'Uganda', NULL),
-    ('UM', 'United States Minor Outlying Islands (the)', NULL),
-    ('US', 'United States of America (the)', NULL),
+    ('UM', 'United States Minor Outlying Islands', NULL),
+    ('US', 'United States', NULL),
     ('UY', 'Uruguay', NULL),
     ('UZ', 'Uzbekistan', NULL),
-    ('VA', 'Holy See (the)', NULL),
+    ('VA', 'Holy See (Vatican City State)', NULL),
     ('VC', 'Saint Vincent and the Grenadines', NULL),
-    ('VE', 'Venezuela (Bolivarian Republic of)', NULL),
-    ('VG', 'Virgin Islands (British)', NULL),
-    ('VI', 'Virgin Islands (U.S.)', NULL)
+    ('VE', 'Venezuela, Bolivarian Republic of', NULL),
+    ('VG', 'Virgin Islands, British', NULL),
+    ('VI', 'Virgin Islands, U.S.', NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."CountryCodeValues" ("Code", "Name", "Definition") VALUES
     ('VN', 'Viet Nam', NULL),
@@ -1851,7 +1851,7 @@ INSERT INTO public."ExternalAccountIdentification1CodeValues" ("Code", "Name", "
     ('CUID', 'CHIPSUniversalIdentifier', '(United States) Clearing House Interbank Payments System (CHIPS) Universal Identification (UID) - identifies entities that own accounts at CHIPS participating financial institutions, through which CHIPS payments are effected. The CHIPS UID is assigned by the New York Clearing House.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('UPIC', 'UPICIdentifier', 'Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalCashAccountType1CodeValues (27 codes)
+-- Seed: ExternalCashAccountType1CodeValues (28 codes)
 INSERT INTO public."ExternalCashAccountType1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('CACC', 'Current', 'Account used to post debits and credits when no specific account has been nominated.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
     ('CARD', 'CardAccount', 'Account used for credit card payments.', 'Registered', '2020-08-01'::date, '2020-08-01'::date, NULL, NULL),
@@ -1870,6 +1870,7 @@ account.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
     ('NFCA', 'NonResidentForeignCurrencyAccount', 'Non-Resident Individual / Entity Foreign Current held domestically.', 'Registered', '2022-11-30'::date, '2022-11-30'::date, NULL, NULL),
     ('NLCY', 'NonResidentLocalDomesticCurrencyAccount', 'Non-Resident domestic currency account.', 'Registered', '2025-11-30'::date, '2025-11-30'::date, NULL, NULL),
     ('NREX', 'NonResidentExternal', 'Account used for non-resident external.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
+    ('ODEP', 'OrdinaryDeposit', 'Account used as ordinary deposit for everyday deposits and withdrawals.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Many banks were using FUTS as Proprietary Code, but  with new ISO code ODEP, banks can move away from usage of Proprietary codes.'),
     ('ODFT', 'Overdraft', 'Account is used for overdrafts.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
     ('ONDP', 'OverNightDeposit', 'Account used for overnight deposits.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
     ('OTHR', 'OtherAccount', 'Account not otherwise specified.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
@@ -1885,7 +1886,7 @@ payment.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
     ('TRAS', 'CashTrading', 'Account used for trading if different from the current cash account.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
     ('VACC', 'VirtualAccount', 'Account created virtually to facilitate collection and reconciliation.', 'Registered', '2022-02-15'::date, '2022-02-15'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalCashClearingSystem1CodeValues (142 codes)
+-- Seed: ExternalCashClearingSystem1CodeValues (145 codes)
 INSERT INTO public."ExternalCashClearingSystem1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('ABE', 'EBAEuro1Step1', 'EBA Euro1/Step1.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('ACH', 'ACH', 'Automated Clearing House. Payment system that clears cash transfers and settles the proceeds in a lump sum, usually on a multilateral netting basis.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
@@ -1957,6 +1958,7 @@ DE (Germany) - retail payment system operated by the Deutsche Bundesbank.', 'Reg
     ('ISW', 'NGInterswitch', 'NG (Nigeria) - Interswitch.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1073'),
     ('JOD', 'Jordan', 'JO (Jordan) - Jordan RTGS.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('KPS', 'Kenya', 'KE (Kenya) - Kenyan Electronic Payment Settlement System.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('KRI', 'KoreaBOKWireInternational', 'KR (South Korea) - Korean Won International RTGS', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('KTS', 'PapuaNewGuineaKATS', 'PG (Papua New Guinea) - Kina Automated Transfer System RTGS (KATS RTGS).', 'Registered', '2023-07-06'::date, '2023-07-06'::date, NULL, NULL),
     ('LGS', 'Luxemburg', 'LU (Luxemburg) - Luxembourg RTGS (LIPS).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('LKB', 'SriLanka', 'LK (Sri Lanka) - Sri Lanka (Lankasettle).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
@@ -1964,14 +1966,16 @@ DE (Germany) - retail payment system operated by the Deutsche Bundesbank.', 'Reg
     ('LVL', 'Latvia', 'LV (Latvia).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('LVT', 'CanadaLVTS', 'CA (Canada) - Large Value Transfer System (LVTS).', 'Registered', '2020-05-01'::date, '2014-01-16'::date, NULL, 'Replaces CAD'),
     ('LYX', 'LynxCanada', 'CA (Canada) Lynx High Value Payment System.', 'Registered', '2019-11-01'::date, '2019-11-01'::date, NULL, NULL),
+    ('MDP', 'MDP', 'MDP, a licensed intermediary payment service in Vietnam providing financial switching, payment gateways and clearing services.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Infrastructure through which the payment instruction is processed, as published in an external clearing system identification code list. Provide tracking information to Swift users when payment is sent to MDP.'),
     ('MEP', 'Singapore', 'SG (Singapore) - Singapore RTGS (MEPS+).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('MGR', 'MadagascarRTGS', 'MG (Madagascar) Real Time Gross Settlement System', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('MOC', 'BancoDeMocambiqueRTGS', 'Banco de Mocambique RTGS system.', 'Registered', '2022-11-30'::date, '2022-11-30'::date, NULL, NULL),
-    ('MOS', 'SouthAfrica', 'ZA (South Africa) - South-African Multiple Option Settlement.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
-    ('MQQ', 'MacaoRTGS', 'Macao Real Time Gross Settlement System', 'Registered', '2020-08-01'::date, '2020-08-01'::date, NULL, NULL),
-    ('MRS', 'Malta', 'MT (Malta) - Malta Realtime Interbank Settlement System.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
-    ('MUP', 'Mauritius', 'MU (Mauritius).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
+    ('MOS', 'SouthAfrica', 'ZA (South Africa) - South-African Multiple Option Settlement.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalCashClearingSystem1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('MQQ', 'MacaoRTGS', 'Macao Real Time Gross Settlement System', 'Registered', '2020-08-01'::date, '2020-08-01'::date, NULL, NULL),
+    ('MRS', 'Malta', 'MT (Malta) - Malta Realtime Interbank Settlement System.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('MUP', 'Mauritius', 'MU (Mauritius).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('NAM', 'Namibia', 'NA (Namibian) - Namibian Interbank Settlement System.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('NAP', 'NAPAS', 'Instant Payment System for payments in VN Dong denomination.', 'Registered', '2025-05-31'::date, '2025-05-31'::date, NULL, 'Infrastructure through which the payment instruction is processed.'),
     ('NBO', 'NorwayRTGS', 'NO - Norway NOK RTGS Norges Bank', 'Registered', '2021-08-31'::date, '2021-08-24'::date, NULL, 'CR1047'),
@@ -2008,12 +2012,12 @@ INSERT INTO public."ExternalCashClearingSystem1CodeValues" ("Code", "Name", "Def
     ('SGA', 'BankOfTheCentralAfricanStates', 'BEAC (Bank of the Central African States) RTGS (SYGMA)', 'Registered', '2025-02-28'::date, '2025-02-28'::date, NULL, 'Settlement system used by participants to transfer money between themselves or the central bank in Cameroon, Central Africa Republic, Chad, Equatorial Guinea, Gabon and Republic of the Congo. In this case, it is particular to the form of electronic payment of Real Time Gross Settlement.'),
     ('SIC', 'SIC', 'CH (Switzerland) - Swiss CHF RTGS named SIC.', 'Registered', '2021-05-01'::date, '2021-05-01'::date, NULL, NULL),
     ('SIP', 'SICIP', 'CH (Switzerland) - Swiss Instant Payment service in CHF operated by SIX Interbank Clearing.', 'Registered', '2021-05-01'::date, '2021-05-01'::date, NULL, NULL),
-    ('SIT', 'Slovania', 'SI (Slovenia).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
-    ('SLB', 'SpainES', 'ES (Spain) - Spanish RTGS (SLBE).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
-    ('SPG', 'Portugal', 'PT (Portugal) - Portuguese RTGS (SPGT).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
-    ('SRB', 'SORBNET3', 'Narodowy Bank Polski RTGS System.', 'Registered', '2023-08-31'::date, '2023-08-31'::date, NULL, NULL)
+    ('SIT', 'Slovania', 'SI (Slovenia).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalCashClearingSystem1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('SLB', 'SpainES', 'ES (Spain) - Spanish RTGS (SLBE).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('SPG', 'Portugal', 'PT (Portugal) - Portuguese RTGS (SPGT).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('SRB', 'SORBNET3', 'Narodowy Bank Polski RTGS System.', 'Registered', '2023-08-31'::date, '2023-08-31'::date, NULL, NULL),
     ('SSK', 'SwedenSSK', 'SE (Sweden) - SEK RTGS (RIX).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('ST2', 'EBAClearingSTEP2', 'EBA Clearing STEP 2.', 'Registered', '2020-05-01'::date, '2009-04-01'::date, NULL, NULL),
     ('STG', 'UnitedKingdomGBP', 'UK (United Kingdom) - CHAPS Sterling RTGS.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
@@ -2111,7 +2115,7 @@ INSERT INTO public."ExternalChargeType1CodeValues" ("Code", "Name", "Definition"
     ('SUMM', 'Summation', 'Summation of individual fees.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, NULL),
     ('TELE', 'TelecommunicationCharges', 'Charges relating to the most appropriate and efficient means of telecommunications available, for example, SWIFT, telex, telephone, facsimile, as determined by the party executing the payment instruction.', 'Registered', '2023-08-31'::date, '2023-08-31'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalClearingSystemIdentification1CodeValues (170 codes)
+-- Seed: ExternalClearingSystemIdentification1CodeValues (172 codes)
 INSERT INTO public."ExternalClearingSystemIdentification1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('AD', 'AndorraClearingSystemID', 'Clearing System ID used in Andorra', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('AE', 'UnitedArabEmiratesClearingSystemID', 'Clearing System ID used in United Arab Emirates', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
@@ -2215,6 +2219,8 @@ INSERT INTO public."ExternalClearingSystemIdentification1CodeValues" ("Code", "N
     ('MD', 'MoldovaClearingSystemID', 'Clearing System ID used in Moldova', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('ME', 'MontenegroClearingSystemID', 'Clearing System ID used in Montenegro', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('MG', 'MadagascarClearingSystemID', 'Clearing System ID used in Madagascar', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
+    ('MGRAC', 'MadagascarRTGSAccountIdentificationCode', 'RTGS account identification code used in Madagascar', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'The code is used for Clearing System Identification under the Financial Institution Identification section of the messages to identify a participant account.'),
+    ('MGRPA', 'MadagascarRTGSParticipantIdentificationCode', 'RTGS participant identification code used in Madagascar', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'The code is used for Clearing System Identification under the Financial Institution Identification section of the messages to identify a participant.'),
     ('MK', 'NorthMacedoniaClearingSystemID', 'Clearing System ID used in North Macedonia', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('MN', 'MongoliaClearingSystemID', 'Clearing System ID used in Mongolia', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('MO', 'MacaoClearingSystemID', 'Clearing System ID used in Macao', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
@@ -2234,11 +2240,11 @@ INSERT INTO public."ExternalClearingSystemIdentification1CodeValues" ("Code", "N
     ('NZNCC', 'NewZealandNationalClearingCode', 'Bank Branch code used in New Zealand.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'New Zealand [0-9]{6,6}'),
     ('NZRSA', 'NewZealandRTGSClearingCode', 'RTGS settlement account used in New Zealand.', 'Registered', '2021-08-31'::date, '2021-08-24'::date, NULL, 'New Zealand [0-9,A-Z]{8,15}'),
     ('OM', 'OmanClearingSystemID', 'Clearing System ID used in Oman', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
-    ('PA', 'PanamaClearingSystemID', 'Clearing System ID used in Panama', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
-    ('PE', 'PeruClearingSystemID', 'Clearing System ID used in Peru', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
-    ('PG', 'PapuaNewGuineaClearingSystemID', 'Clearing System ID used in Papua New Guinea', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL)
+    ('PA', 'PanamaClearingSystemID', 'Clearing System ID used in Panama', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalClearingSystemIdentification1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('PE', 'PeruClearingSystemID', 'Clearing System ID used in Peru', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
+    ('PG', 'PapuaNewGuineaClearingSystemID', 'Clearing System ID used in Papua New Guinea', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('PH', 'PhilippinesClearingSystemID', 'Clearing System ID used in Philippines.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('PK', 'PakistanClearingSystemID', 'Clearing System ID used in Pakistan', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('PLKNR', 'PolishNationalClearingCode', 'Bank Branch code used in Poland.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Poland [0-9]{8,8}'),
@@ -2276,11 +2282,11 @@ INSERT INTO public."ExternalClearingSystemIdentification1CodeValues" ("Code", "N
     ('TZ', 'TanzaniaClearingSystemID', 'Clearing System ID used in Tanzania', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('UA', 'UkraineClearingSystemID', 'Clearing System ID used in Ukraine', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('UG', 'UgandaClearingSystemID', 'Clearing System ID used in Uganda', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
-    ('UGDAC', 'UgandaRTGSAccountIdentificationCode', 'RTGS account identification code used in the Republic of Uganda.', 'Registered', '2026-02-28'::date, '2026-02-28'::date, NULL, 'Usage: Code used for Clearing System Identification under the Financial Institution Identification section of the messages to identify a settlement account.'),
-    ('UGDPA', 'UgandaRTGSParticipantIdentificationCode', 'RTGS participant identification code used in the Republic of Uganda.', 'Registered', '2026-02-28'::date, '2026-02-28'::date, NULL, 'Usage: Code used for Clearing System Identification under the Financial Institution Identification section of the messages to identify a participant.'),
-    ('USABA', 'UnitedStatesRoutingNumberFedwireNACHA', 'Routing Transit number assigned by the ABA for US financial institutions.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'US [0-9]{9,9}')
+    ('UGDAC', 'UgandaRTGSAccountIdentificationCode', 'RTGS account identification code used in the Republic of Uganda.', 'Registered', '2026-02-28'::date, '2026-02-28'::date, NULL, 'Usage: Code used for Clearing System Identification under the Financial Institution Identification section of the messages to identify a settlement account.')
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalClearingSystemIdentification1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('UGDPA', 'UgandaRTGSParticipantIdentificationCode', 'RTGS participant identification code used in the Republic of Uganda.', 'Registered', '2026-02-28'::date, '2026-02-28'::date, NULL, 'Usage: Code used for Clearing System Identification under the Financial Institution Identification section of the messages to identify a participant.'),
+    ('USABA', 'UnitedStatesRoutingNumberFedwireNACHA', 'Routing Transit number assigned by the ABA for US financial institutions.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'US [0-9]{9,9}'),
     ('USPID', 'CHIPSParticipantIdentifier', 'Bank identifier used by CHIPs in the US.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'US [0-9]{4,4}'),
     ('UY', 'UruguayClearingSystemID', 'Clearing System ID used in Uruguay', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('UZ', 'UzbekistanClearingSystemID', 'Clearing System ID used in Uzbekistan', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
@@ -2309,23 +2315,25 @@ INSERT INTO public."ExternalCreditorAgentInstruction1CodeValues" ("Code", "Name"
     ('TOKN', 'Token', 'Token information.', 'Registered', '2021-02-01'::date, '2021-02-01'::date, NULL, NULL),
     ('VLTK', 'TokenValidation', 'Additional validation information to be used in conjunction with the token.', 'Registered', '2021-02-01'::date, '2021-02-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalCreditorReferenceType1CodeValues (6 codes)
+-- Seed: ExternalCreditorReferenceType1CodeValues (7 codes)
 INSERT INTO public."ExternalCreditorReferenceType1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('DISP', 'DispatchAdvice', 'Document is a dispatch advice.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('FXDR', 'ForeignExchangeDealReference', 'Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
+    ('PRNB', 'PaymentReferenceNumber', 'Document is a payment reference number used to identify, match, or reconcile the referred contribution payment or related remittance information.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, '1. Payment type is associated with a contribution made towards the employee''s retirement funds known as Super Annuation Fund in Australia. 2. In accordance with Australian Taxation Office (ATO) guidelines, a unique Payment Reference Number (PRN) must be generated by the employer (payer) to associate superannuation payment transactions with the corresponding employee superannuation information. This unique PRN enables accurate tracking and reconciliation of contributions. 3. This mandatory PRN information is consumed by Super Annuation Funds to reconcile the payment against the associated reporting instructions standards dictated by ATO.'),
     ('PUOR', 'PurchaseOrder', 'Document is a purchase order.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('RADM', 'RemittanceAdviceMessage', 'Document is a remittance advice sent separately from the current transaction.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('RPIN', 'RelatedPaymentInstruction', 'Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('SCOR', 'StructuredCommunicationReference', 'Document is a structured communication reference provided by the creditor to identify the referred transaction.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalDateType1CodeValues (4 codes)
+-- Seed: ExternalDateType1CodeValues (5 codes)
 INSERT INTO public."ExternalDateType1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('INDA', 'InvoiceDate', 'Relates to the invoice date.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('NTAV', 'NotAvailable', 'Date type is not available.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('NXBD', 'NextBillingDate', 'Relates to the next billing date.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
-    ('PADD', 'PaymentDueDate', 'Relates to the payment due date.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL)
+    ('PADD', 'PaymentDueDate', 'Relates to the payment due date.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
+    ('PYDT', 'PayrollDate', 'Relates to the payroll date.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalDocumentAmountType1CodeValues (26 codes)
+-- Seed: ExternalDocumentAmountType1CodeValues (27 codes)
 INSERT INTO public."ExternalDocumentAmountType1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('APDS', 'AdditionalPromotionalDiscount', 'Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days)', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('CHAR', 'NewCharges', 'Amount is new charges, for example new charges on a credit card.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
@@ -2333,6 +2341,7 @@ INSERT INTO public."ExternalDocumentAmountType1CodeValues" ("Code", "Name", "Def
     ('CNTY', 'CountyTax', 'Tax accessed by county jurisdictions within a country.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('CREN', 'CreditNote', 'Amount is a credit note.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('CRTL', 'AvailableCredit', 'Amount is available credit.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
+    ('DISC', 'DiscountApplied', 'Discount Applied. Generic usage if cannot be specified by any other discount code.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('DUPA', 'DuePayable', 'Amount is due payable.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('ESCO', 'Escrow', 'Amount is in escrow.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
     ('FEES', 'Fees', 'Amount is fees.', 'Registered', '2024-02-28'::date, '2024-02-28'::date, NULL, NULL),
@@ -2413,7 +2422,7 @@ INSERT INTO public."ExternalGarnishmentType1CodeValues" ("Code", "Name", "Defini
     ('GNDP', 'GarnishmentForChildSupportFromDirectPayer', 'Garnishment from a direct payer for Child Support', 'Registered', '2014-04-17'::date, '2014-04-17'::date, NULL, NULL),
     ('GTPP', 'GarnishmentToTaxingAgency', 'Garnishment from a third party payer to taxing agency', 'Registered', '2014-04-17'::date, '2014-04-17'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalLocalInstrument1CodeValues (111 codes)
+-- Seed: ExternalLocalInstrument1CodeValues (115 codes)
 INSERT INTO public."ExternalLocalInstrument1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('0000', 'BusinessPayment', 'Transaction is related to business payment', 'Obsolete', '2018-03-01'::date, '2007-09-01'::date, NULL, 'Retired code. Do not use'),
     ('0001', 'ConvertedBankPayment', 'Transaction is related to converted (bank) payment.
@@ -2494,6 +2503,7 @@ Reconciliation reference is secured by check digits supporting secure optical re
     ('ICMC', 'IncidentManagementCorrection', 'Transaction is related to an Incident Management Correction procedure based on the DD infrastructure.', 'Registered', '2019-02-01'::date, '2019-02-01'::date, NULL, 'EMEA,NL,EUR,All,DD,B2B'),
     ('IDEAL', 'PaymentsViaInternetOwnedByCurrence', 'Transaction is related to payments via internet owned by Currence.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'EMEA,NL,EUR,All,Both'),
     ('IMD', 'ImmediatePayment', 'Type of Payment used within the New Payments Architecture (UK). Immediate Payments are used for payments initiated by customers using channels such as internet, mobile or telephone banking, where the customer wants the payment to be effected immediately.', 'Registered', '2023-08-31'::date, '2023-08-31'::date, NULL, NULL),
+    ('IMPS', 'IMPSClearing', 'Instant payment via the Indian IMPS clearing system.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Applies to India only.'),
     ('IN', 'CrossBorderCustomerCreditTransfer', 'Transaction is related to cross border customer credit transfer.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'EMEA,SE,All,All,CT'),
     ('INST', 'InstantCreditTransfer', 'Transaction is related to an Instant Credit Transfer.
 Use case example: SEPA Instant Credit Transfer (SCT Inst)', 'Registered', '2016-05-11'::date, '2016-04-01'::date, NULL, 'GLOBAL,GLOBAL,All,All,CT'),
@@ -2504,11 +2514,14 @@ Use case example: SEPA Instant Credit Transfer (SCT Inst)', 'Registered', '2016-
     ('INSTTC01IDEAL', 'PaymentsViaInternetOwnedByCurrenceUsingInstantCreditTransferTimeCritical', 'Transaction is related to payments via internet owned by Currence which uses an Instant Credit Transfer under the rules of the Dutch AOS on top of the EPC SCT Inst scheme.', 'Registered', '2017-11-01'::date, '2017-11-01'::date, NULL, 'EMEA,NL,EUR,All,CT,Both'),
     ('IPA', 'InstantPaymentsAruba', 'Transaction is related to an Instant Credit Transfer under the rules of the Centrale Bank van Aruba, based on the EPC SCT Inst scheme.', 'Registered', '2018-11-01'::date, '2018-11-01'::date, NULL, 'Caribbean,AW,AWG,All,CT,Both'),
     ('ISE', 'ImageBasedChequeCollection', 'Transaction is related to the German Image-based Cheque Collection Procedure "Imagegestützter Scheckeinzug - ISE"', 'Registered', '2015-08-31'::date, '2015-08-31'::date, NULL, 'EMEA,DE,EUR,Domestic DE,Other,Bk2Bk'),
-    ('ITP', 'InstantCreditTransferPreferred', 'Payment via Instant Credit Transfer but Credit Transfer is also possible.', 'Registered', '2024-02-28'::date, '2021-11-30'::date, NULL, 'CR1351/SIC'),
-    ('MANP', 'MandatedPayment', 'Indicates that the payment is sent by responsible Central Bank on behalf of the participant in case of contingency.', 'Registered', '2018-05-01'::date, '2018-05-01'::date, NULL, 'EMEA,EU,All,EMIP,CT,B2B')
+    ('ITP', 'InstantCreditTransferPreferred', 'Payment via Instant Credit Transfer but Credit Transfer is also possible.', 'Registered', '2024-02-28'::date, '2021-11-30'::date, NULL, 'CR1351/SIC')
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalLocalInstrument1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('IUPI', 'UPIClearing', 'Instant payment via the Indian UPI clearing system.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Applies to India only.'),
+    ('MANP', 'MandatedPayment', 'Indicates that the payment is sent by responsible Central Bank on behalf of the participant in case of contingency.', 'Registered', '2018-05-01'::date, '2018-05-01'::date, NULL, 'EMEA,EU,All,EMIP,CT,B2B'),
     ('MDP', 'MultiDayPayment', 'Type of New Payments Architecture (NPA) payment. Payments are processed over a three-day cycle and available to customers early in the morning of Day 3.', 'Registered', '2022-05-31'::date, '2022-05-31'::date, NULL, 'Usage: EMEA-UK.'),
+    ('NACH', 'NACHClearing', 'Payment via the Indian NACH clearing (net settlement).', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Applies to India only.'),
+    ('NEFT', 'NEFTClearing', 'Payment via the Indian NEFT clearing (net settlement).', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Applies to India only.'),
     ('NLDO', 'DutchDomesticBulkPayment', 'Transaction is related to a Domestic payment initiated by PAIN.001', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, 'EMEA,NL,EUR,All,CT'),
     ('NLGOV', 'DirectDebitInitiatedByTheGovernmentWithSpecialConditions', 'Transaction is related to direct debit scheme owned by the NVB.', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, 'EMEA,NL,EUR,All,DD'),
     ('NLUP', 'DutchUrgentPayment', 'Transaction is related to a Domestic payment initiated by PAIN.001', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, 'EMEA,NL,EUR,All,CT'),
@@ -2544,7 +2557,7 @@ ON CONFLICT ("Code") DO NOTHING;
 -- it is a registered/defined code set with zero enumerated values
 -- this quarter (confirmed via the registry's "CodeSetsDefinition" sheet,
 -- Status: Registered). Table intentionally left empty.
--- Seed: ExternalOrganisationIdentification1CodeValues (14 codes)
+-- Seed: ExternalOrganisationIdentification1CodeValues (15 codes)
 INSERT INTO public."ExternalOrganisationIdentification1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('BANK', 'BankPartyIdentification', 'Unique and unambiguous assignment made by a specific bank or similar financial institution to identify a relationship as defined between the bank and its client.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('BDID', 'BusinessDomainIdentifier', 'Identifier of the business domain in which the organisation is active.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1066'),
@@ -2560,7 +2573,8 @@ Number assigned by a party to identify a creditor or debtor relationship.', 'Reg
     ('GS1G', 'GS1GLNIdentifier', 'Global Location Number. A non-significant reference number used to identify legal entities, functional entities, or physical entities according to GS1 numbering scheme rules.The number is used to retrieve detailed information that is linked to it.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('SREN', 'SIREN', 'The SIREN number is a 9 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation in France.', 'Registered', '2010-12-06'::date, '2010-12-06'::date, NULL, NULL),
     ('SRET', 'SIRET', 'The SIRET number is a 14 digit code assigned by INSEE, the French National Institute for Statistics and Economic Studies, to identify an organisation unit in France. It consists of the SIREN number, followed by a five digit classification number, to identify the local geographical unit of that entity', 'Registered', '2010-12-06'::date, '2010-12-06'::date, NULL, NULL),
-    ('TXID', 'TaxIdentificationNumber', 'Number assigned by a tax authority to identify an organisation.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
+    ('TXID', 'TaxIdentificationNumber', 'Number assigned by a tax authority to identify an organisation.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('USID', 'UniqueSuperannuationIdentifier', 'Unique identifier assigned to a pension/superannuation fund, product, or scheme to which a superannuation contribution payment is directed.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'In the Australian superannuation context, this identifier may be represented by the Unique Superannuation Identifier (USI) used to identify the relevant superannuation fund or product.')
 ON CONFLICT ("Code") DO NOTHING;
 -- Seed: ExternalPaymentGroupStatus1CodeValues (13 codes)
 INSERT INTO public."ExternalPaymentGroupStatus1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
@@ -2626,7 +2640,7 @@ INSERT INTO public."ExternalPersonIdentification1CodeValues" ("Code", "Name", "D
     ('TELE', 'TelephoneNumber', 'Number assigned by a telephone or mobile phone operator to identify a person. A person may have multiple phone numbers.', 'Registered', '2021-05-01'::date, '2021-05-01'::date, NULL, NULL),
     ('TXID', 'TaxIdentificationNumber', 'Number assigned by a tax authority to identify a person.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalProxyAccountType1CodeValues (21 codes)
+-- Seed: ExternalProxyAccountType1CodeValues (22 codes)
 INSERT INTO public."ExternalProxyAccountType1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('BIID', 'BillerSubscriberIdentification', 'Billers of specific utilities could register for a Biller Identification as supported in the clearing scheme, and use this identification for collections (applied for corporate account proxy).', 'Registered', '2022-03-04'::date, '2022-03-04'::date, NULL, NULL),
     ('CCPT', 'PassportNumber', 'Unique government-issued Identification  used as account proxy to  identify the individual  (for example for government charges, road taxes, vaccination charges) and typically linked to the individual''s bank account
@@ -2647,6 +2661,7 @@ Use cases: Can be used by corporates as a "government-issued" Identification for
     ('MBNO', 'MobilePhoneNumber', 'Mobile phone number in the format specified by the "The international public telecommunication numbering plan ITU- T E 164" (applied for corporate or individual account proxy).', 'Registered', '2022-03-04'::date, '2022-03-04'::date, NULL, NULL),
     ('NIDN', 'NationalIdentificationNumber', 'Unique government-issued Identification  used as account proxy to  identify the individual  or corporate for example for public benefits, government subsidies) and typically linked to the individual''s / corporate bank account.
 (applied for corporate or individual account proxy).', 'Registered', '2022-03-04'::date, '2022-03-04'::date, NULL, NULL),
+    ('OSID', 'OtherSchemeIdentificationNumber', 'Additional scheme identifier used to complement the primary scheme identification so that banks can apply respective validations of the proxy value as per the Type code provided.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('PVTX', 'IndividualTaxIdentification', 'Unique government-issued  tax Identification  used as account proxy to  identify the individual  for example for government tax) and typically linked to the individual''s bank account (applied for  individual account proxy).', 'Registered', '2022-03-04'::date, '2022-03-04'::date, NULL, NULL),
     ('SHID', 'SchemeIdentificationNumber', 'Account proxy issued by a payment scheme (applied for corporate or individual account proxy).
 Use cases: Any proxies issued by clearing systems, for example VPA (India), FPS Identifier (Hong Kong), Jompay (Malaysia) CCIN (Canada).', 'Registered', '2022-03-04'::date, '2022-03-04'::date, NULL, NULL),
@@ -2657,7 +2672,7 @@ Use cases: Any proxies issued by clearing systems, for example VPA (India), FPS 
     ('UBIL', 'UtilitiesSubscriptionIdentification', 'Subscriber Identification for utilities and services. As opposed to a biller Identification, this identification is used for the subscriber of the service (applied for corporate or individual account proxy).', 'Registered', '2022-03-04'::date, '2022-03-04'::date, NULL, NULL),
     ('VIPN', 'VehicleIdentificationPlateNumber', 'Account proxy for receiving insurance claims, pay insurance premium, road tax payments, traffic tickets etc.(applied for corporate or individual account proxy).', 'Registered', '2022-03-04'::date, '2022-03-04'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalPurpose1CodeValues (342 codes)
+-- Seed: ExternalPurpose1CodeValues (366 codes)
 INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('ACCT', 'AccountManagement', 'Transaction moves funds between 2 accounts of same account holder at the same bank.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Cash Mgmt'),
     ('ACTF', 'AccountFunding', 'Account transfer funding a bank account (Demand Deposit (DDA) and savings accounts).', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
@@ -2667,6 +2682,7 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('AEMP', 'ActiveEmploymentPolicy', 'Payment concerning active employment policy.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'Salary & Benefits'),
     ('AGRT', 'AgriculturalTransfer', 'Transaction is related to the agricultural domain.', 'Registered', '2009-04-01'::date, '2007-09-01'::date, NULL, 'Commercial'),
     ('AIRB', 'Air', 'Transaction is a payment for air transport related business.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Transport'),
+    ('ALDS', 'AutoLoanDisbursement', 'Disbursement of funds for vehicle purchases including cars, trucks, motorcycles, boats, RVs/motorhomes, ATVs/UTVs, jet skis, snowmobiles, commercial vehicles, and trailers.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('ALLW', 'Allowance', 'Transaction is the payment of allowances.', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'Salary & Benefits'),
     ('ALMY', 'AlimonyPayment', 'Transaction is the payment of alimony.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Salary & Benefits'),
     ('AMEX', 'Amex', 'Card Settlement-Settlement of AMEX transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
@@ -2688,19 +2704,22 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('BKIP', 'BankLoanAccruedInterestPayment', 'Accrued interest payments. Specific to bank loans.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Bank Debt'),
     ('BKPP', 'BankLoanPrincipalPaydown', 'Principal paydowns. Specific to bank loans', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Bank Debt'),
     ('BLDM', 'BuildingMaintenance', 'Transaction is related to a payment associated with building maintenance.', 'Registered', '2012-02-09'::date, '2012-02-09'::date, NULL, 'General'),
+    ('BLDS', 'BusinessLoanDisbursement', 'Business Loan Disbursement, e.g., disbursing capital for business expansion, equipment purchase, or operational expenses.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('BNET', 'BondForwardNetting', 'Bond Forward pair-off cash net movement.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'General'),
+    ('BNPL', 'BuyNowPayLater', 'Buy Now Pay Later Payments, e.g., point-of-sale financing options allowing installment payments for retail purchases.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('BOCE', 'BackOfficeConversionEntry', 'Transaction is related to a payment associated with a Back Office Conversion Entry', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Commercial'),
     ('BOND', 'Bonds', 'Securities Lending-Settlement of Bond transaction.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
     ('BONU', 'BonusPayment.', 'Transaction is related to payment of a bonus.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Salary & Benefits'),
     ('BR12', 'TrailerFeeRebate', 'US mutual fund trailer fee (12b-1) rebate payment', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Trailer Fee'),
     ('BROK', 'BrokerageFunding', 'Account transfer funding a brokerage account.', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
     ('BUSB', 'Bus', 'Transaction is a payment for bus transport related business.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Transport'),
-    ('CABD', 'CorporateActions-Bonds', 'Securities Lending-Settlement of Corporate Actions: Bonds transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
-    ('CAEQ', 'CorporateActions-Equities', 'Securities Lending-Settlement of Corporate Actions: Equities transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
-    ('CAFI', 'CustodianManagementFeeInhouse', 'Transaction is the payment of custodian account management fee where custodian bank and current account servicing bank coincide.', 'Registered', '2012-10-08'::date, '2012-10-08'::date, NULL, 'Investment'),
-    ('CASH', 'CashManagementTransfer', 'Transaction is a general cash management instruction.', 'Registered', '2009-04-01'::date, '2007-09-01'::date, NULL, 'Cash Mgmt')
+    ('CABD', 'CorporateActions-Bonds', 'Securities Lending-Settlement of Corporate Actions: Bonds transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045')
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('CAEQ', 'CorporateActions-Equities', 'Securities Lending-Settlement of Corporate Actions: Equities transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
+    ('CAFI', 'CustodianManagementFeeInhouse', 'Transaction is the payment of custodian account management fee where custodian bank and current account servicing bank coincide.', 'Registered', '2012-10-08'::date, '2012-10-08'::date, NULL, 'Investment'),
+    ('CARL', 'CarLeaseRental', 'Car Rentals, e.g., short-term vehicle rentals.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Transport'),
+    ('CASH', 'CashManagementTransfer', 'Transaction is a general cash management instruction.', 'Registered', '2009-04-01'::date, '2007-09-01'::date, NULL, 'Cash Mgmt'),
     ('CBCR', 'CreditCard', 'Card Settlement-Settlement of Credit Card transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
     ('CBFF', 'CapitalBuilding', 'Transaction is related to capital building fringe fortune, ie capital building in general.', 'Registered', '2014-01-16'::date, '2009-04-01'::date, NULL, 'General'),
     ('CBFR', 'CapitalBuildingRetirement', 'Transaction is related to capital building fringe fortune for retirement.', 'Registered', '2014-01-16'::date, '2014-01-16'::date, NULL, 'General'),
@@ -2727,6 +2746,7 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('CHCP', 'CharitableDonationCorporate', 'Charitable donation being processed on behalf of a Corporate entity.', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
     ('CHDF', 'CharitableDonationDAF', 'Charitable donation being processed on behalf of a Donor Advised Fund (DAF).', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
     ('CHFN', 'CharitableDonationFoundation', 'Charitable donation being processed on behalf of a Foundation (purpose-driven entity).', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
+    ('CLDS', 'ConstructionLoanDisbursement', 'Construction Loan Disbursement, e.g., phased disbursements for construction projects based on completion milestones.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('CLPR', 'CarLoanPrincipalRepayment', 'Transaction is a payment of car loan principal payment.', 'Registered', '2009-04-01'::date, '2007-09-01'::date, NULL, 'Finance'),
     ('CMDT', 'CommodityTransfer', 'Transaction is payment of commodities.', 'Registered', '2009-04-01'::date, '2007-09-01'::date, NULL, 'Investment'),
     ('COLL', 'CollectionPayment', 'Transaction is a collection of funds initiated via a credit transfer or direct debit.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Cash Mgmt'),
@@ -2735,14 +2755,14 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('COMP', 'CompensationPayment', 'Transaction is related to the payment of a compensation relating to interest loss/value date adjustment and can include fees.', 'Registered', '2017-11-01'::date, '2017-11-01'::date, NULL, 'Finance'),
     ('COMT', 'ConsumerThirdPartyConsolidatedPayment', 'Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Consumer'),
     ('CORT', 'TradeSettlementPayment', 'Transaction is related to settlement of a trade, e.g. a foreign exchange deal or a securities transaction.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'General'),
-    ('COST', 'Costs', 'Transaction is related to payment of costs.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'General'),
+    ('COST', 'Costs', 'Transaction is related to payment of costs.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'General')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('CPEN', 'CashPenalties', 'Cash penalties related to securities transaction, including CSDR Settlement Discipline Regime.', 'Registered', '2022-05-31'::date, '2022-05-31'::date, NULL, NULL),
     ('CPKC', 'CarparkCharges', 'Transaction is related to carpark charges.', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'General'),
     ('CPYR', 'Copyright', 'Transaction is payment of copyright.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Commercial'),
     ('CRDS', 'CreditDefaultSwap', 'Cash collateral related to trading of credit default swap.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
-    ('CRPR', 'CrossProduct', 'Cash collateral related to a combination of various types of trades.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral')
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('CRPR', 'CrossProduct', 'Cash collateral related to a combination of various types of trades.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('CRSP', 'CreditSupport', 'Cash collateral related to cash lending/borrowing; letter of Credit; signing of master agreement.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('CRTL', 'CreditLine', 'Cash collateral related to opening of a credit line before trading.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('CRYP', 'CryptoAssets', 'Transaction is related to the purchase or sale of crypto assets.', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, 'To be used within payment initiations, so the paying and/or paid agent is aware of the nature of the transaction.'),
@@ -2774,23 +2794,27 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('EQPT', 'EquityOption', 'Cash collateral related to trading of equity option (Also known as stock options).', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('EQTS', 'Equities', 'Securities Lending-Settlement of Equities transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
     ('EQUS', 'EquitySwap', 'Cash collateral related to equity swap trades where the return of an equity is exchanged for either a fixed or a floating rate of interest.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
+    ('ERPM', 'EmergencyReliefPayment', 'Emergency relief payments, e.g., receiving assistance after natural disasters, COVID relief payments, or emergency aid disbursements.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'General'),
+    ('ESCR', 'EscrowPayment', 'Financial intermediation services via an escrow account, e.g., real estate transactions, online marketplace purchases, business acquisitions, construction projects, legal settlements.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('ESTX', 'EstateTax', 'Transaction is related to a payment of estate tax.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Tax'),
-    ('ETUP', 'EPurseTopUp', 'Transaction is related to a Service that is first reserving money from a card account and then is loading an e-purse application by this amount.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, 'Card Settlement'),
+    ('ETUP', 'EPurseTopUp', 'Transaction is related to a Service that is first reserving money from a card account and then is loading an e-purse application by this amount.', 'Registered', '2012-05-31'::date, '2012-05-31'::date, NULL, 'Card Settlement')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('EXPT', 'ExoticOption', 'Cash collateral related to trading of an exotic option for example a non-standard option.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('EXTD', 'ExchangeTradedDerivatives', 'Cash collateral related to trading of exchanged traded derivatives in general (Opposite to Over the Counter (OTC)).', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('FACT', 'FactorUpdateRelatedPayment', 'Payment related to a factor update', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'General'),
     ('FAND', 'FinancialAidInCaseOfNaturalDisaster', 'Financial aid by State authorities for abolition of consequences of natural disasters.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'General'),
     ('FCOL', 'FeeCollection', 'A Service that is settling card transaction related fees between two parties.', 'Registered', '2012-10-08'::date, '2012-10-08'::date, NULL, 'Card Settlement'),
     ('FCPM', 'LatePaymentOfFeesAndCharges', 'Transaction is the payment for late fees & charges. E.g Credit card charges', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'General'),
-    ('FEES', 'PaymentOfFees', 'Payment of fees/charges.', 'Registered', '2017-11-01'::date, '2016-04-01'::date, NULL, 'General')
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('FEES', 'PaymentOfFees', 'Payment of fees/charges.', 'Registered', '2017-11-01'::date, '2016-04-01'::date, NULL, 'General'),
     ('FERB', 'Ferry', 'Transaction is a payment for ferry related business.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Transport'),
+    ('FGDL', 'FoodGroceryDelivery', 'Food/Grocery Delivery, e.g., delivery fees and payments through app-based food delivery services.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Subscriptions & Services'),
     ('FIXI', 'FixedIncome', 'Cash collateral related to a fixed income instrument', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('FLCR', 'FleetCard', 'Card Settlement-Settlement of Fleet transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
     ('FNET', 'FuturesNettingPayment', 'Cash associated with a netting of futures payments. Refer to CCPM codeword for netting of initial and variation margin through a CCP', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Listed Derivatives'),
     ('FORW', 'ForwardForeignExchange', 'FX trades with a value date in the future.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Foreign Exchange'),
     ('FREX', 'ForeignExchange', 'Transaction is related to a foreign exchange operation.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Investment'),
+    ('FUEL', 'Fuel', 'Fuel/Gas, e.g., purchases at gas stations for vehicle fuel or at charging stations for electric vehicles.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Transport'),
     ('FUTR', 'Futures', 'Cash related to futures trading activity.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Listed Derivatives'),
     ('FWBC', 'ForwardBrokerOwnedCashCollateral', 'Cash collateral payment against a Master Forward Agreement (MFA) where the cash is held in a segregated account and is not available for use by the client. Includes any instruments with a forward settling date such TBAs, repurchase agreements and bond forwards', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('FWCC', 'ForwardClientOwnedCashCollateral', 'Cash collateral payment against a Master Forward Agreement (MFA) where the cash is owned and may be used by the client when returned. Includes any instruments with a forward settling date such TBAs, repurchase agreements and bond forwards', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
@@ -2806,6 +2830,7 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('GDSV', 'PurchaseSaleOfGoodsAndServices', 'Transaction is related to purchase and sale of goods and services.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Commercial'),
     ('GFRP', 'GuaranteeFundRightsPayment', 'Compensation to unemployed persons during insolvency procedures.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'Salary & Benefits'),
     ('GIFT', 'Gift', 'Payment with no commercial or statutory purpose.', 'Registered', '2021-05-01'::date, '2021-05-01'::date, NULL, 'General'),
+    ('GOVG', 'GovernmentGrants', 'Government Grants, e.g., receiving funds for academic research, small business development, educational programs, or community initiatives.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'General'),
     ('GOVI', 'GovernmentInsurance', 'Transaction is related to a payment of government insurance.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Finance'),
     ('GOVT', 'GovernmentPayment', 'Transaction is a payment to or from a government department.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'General'),
     ('GSCB', 'PurchaseSaleOfGoodsAndServicesWithCashBack', 'Transaction is related to purchase and sale of goods and services with cash back.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Commercial'),
@@ -2814,19 +2839,22 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('GVEB', 'AustrianGovernmentEmployeesCategoryB', 'Transaction is payment to category B Austrian government employees.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Salary & Benefits'),
     ('GVEC', 'AustrianGovernmentEmployeesCategoryC', 'Transaction is payment to category C Austrian government employees.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Salary & Benefits'),
     ('GVED', 'AustrianGovernmentEmployeesCategoryD', 'Transaction is payment to category D Austrian government employees.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Salary & Benefits'),
-    ('GWLT', 'GovermentWarLegislationTransfer', 'Payment to victims of war violence and to disabled soldiers.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'Salary & Benefits'),
+    ('GWLT', 'GovermentWarLegislationTransfer', 'Payment to victims of war violence and to disabled soldiers.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'Salary & Benefits')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('GYMM', 'GymMembership', 'Gym Membership, e.g., monthly or annual fees for fitness centers or health clubs.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Subscriptions & Services'),
     ('HEDG', 'Hedging', 'Transaction is related to a hedging operation.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Investment'),
     ('HLRP', 'PropertyLoanRepayment', 'Transaction is related to a payment of property loan.', 'Registered', '2021-08-31'::date, '2007-09-01'::date, NULL, 'Finance-Originator: Payments Harmonisation 2006 External Code List-Updated: CR1048-Bank of England'),
     ('HLST', 'PropertyLoanSettlement', 'Transaction is related to the settlement of a property loan.', 'Registered', '2021-08-31'::date, '2018-05-01'::date, NULL, 'Finance-Originator: CR0711/SADC-Updated: CR1048/Bank of England'),
     ('HLTC', 'HomeHealthCare', 'Transaction is a payment for home health care services.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical'),
     ('HLTI', 'HealthInsurance', 'Transaction is a payment of health insurance.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical'),
+    ('HMMS', 'HomeMaintenanceServices', 'Home Maintenance Related, e.g., regular services for home cleaning, lawn care, pest control, or pool maintenance.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Subscriptions & Services'),
     ('HREC', 'HousingRelatedContribution', 'Transaction is a contribution by an employer to the housing expenditures (purchase, construction, renovation) of the employees within a tax free fringe benefit system.', 'Registered', '2014-11-28'::date, '2014-11-28'::date, NULL, 'Salary & Benefits'),
+    ('HRPS', 'HomeRepairServices', 'Home Repair, e.g., one-time or emergency repairs for washer/dryer, damaged floors, plumbing issues, or electrical problems.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Subscriptions & Services'),
     ('HSPC', 'HospitalCare', 'Transaction is a payment for hospital care services.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical'),
     ('HSTX', 'HousingTax', 'Transaction is related to a payment of housing tax.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Tax'),
     ('ICCP', 'IrrevocableCreditCardPayment', 'Transaction is reimbursement of credit card payment.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'General'),
-    ('ICRF', 'IntermediateCareFacility', 'Transaction is a payment for intermediate care facility services.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical')
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('ICRF', 'IntermediateCareFacility', 'Transaction is a payment for intermediate care facility services.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical'),
     ('IDCP', 'IrrevocableDebitCardPayment', 'Transaction is reimbursement of debit card payment.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'General'),
     ('IHRP', 'InstalmentHirePurchaseAgreement', 'Transaction is payment for an installment/hire-purchase agreement.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'General'),
     ('INBC', 'InterbankCharges', 'Settlement of charges in response to a prior interbank charge request.', 'Registered', '2025-08-29'::date, '2025-08-29'::date, NULL, NULL),
@@ -2853,7 +2881,9 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('IVPT', 'InvoicePayment', 'Transaction is the payment for invoices.', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'General'),
     ('LBIN', 'LendingBuyInNetting', 'Net payment related to a buy-in. When an investment manager is bought in on a sell trade that fails due to a failed securities lending recall, the IM may seize the underlying collateral to pay for the buy-in. Any difference between the value of the collateral and the sell proceeds would be paid or received under this code', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Securities Lending'),
     ('LBRI', 'LaborInsurance', 'Transaction is a payment of labor insurance.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Finance'),
-    ('LBXX', 'LongBoxTransfer', 'Transaction is related to a cash transfer from an underlying fund to a holding collateralization account (ie. Longbox) for potential further use as collateral or back to the fund in case it is not required anymore.', 'Registered', '2025-11-30'::date, '2025-11-30'::date, NULL, NULL),
+    ('LBXX', 'LongBoxTransfer', 'Transaction is related to a cash transfer from an underlying fund to a holding collateralization account (ie. Longbox) for potential further use as collateral or back to the fund in case it is not required anymore.', 'Registered', '2025-11-30'::date, '2025-11-30'::date, NULL, NULL)
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('LCOL', 'LendingCashCollateralFreeMovement', 'Free movement of cash collateral. Cash collateral paid by the borrower is done separately from the delivery of the shares at loan opening or return of collateral done separately from return of the loaned security. Note: common when the currency of the security is different the currency of the cash collateral.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Securities Lending'),
     ('LFEE', 'LendingFees', 'Fee payments, other than rebates, for securities lending. Includes (a) exclusive fees; (b) transaction fees; (c)
 custodian fees; (d) minimum balance fees', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Securities Lending'),
@@ -2868,9 +2898,7 @@ types are not specified', 'Registered', '2016-04-01'::date, '2016-01-01'::date, 
     ('LOAR', 'LoanRepayment', 'Transaction is related to repayment of loan to lender.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Finance'),
     ('LOTT', 'LotteryPayment', 'General-Payment towards a purchase or winnings received from lottery activities.', 'Registered', '2021-08-31'::date, '2021-08-24'::date, NULL, 'CR1049'),
     ('LREB', 'LendingRebatePayments', 'Securities lending rebate payments', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Securities Lending'),
-    ('LREV', 'LendingRevenuePayments', 'Revenue payments made by the lending agent to the client', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Securities Lending')
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('LREV', 'LendingRevenuePayments', 'Revenue payments made by the lending agent to the client', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Securities Lending'),
     ('LSFL', 'LendingClaimPayment', 'Payments made by a borrower to a lending agent to satisfy claims made by the investment manager related to sell fails from late loan recall deliveries', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Securities Lending'),
     ('LTCF', 'LongTermCareFacility', 'Transaction is a payment for long-term care facility services.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical'),
     ('MAFC', 'MedicalAidFundContribution', 'Transaction is contribution to medical aid fund.', 'Registered', '2016-11-18'::date, '2016-09-01'::date, NULL, 'Medical'),
@@ -2897,7 +2925,10 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('NWCM', 'NetworkCommunication', 'Transaction is related to a payment of network communication.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Utilities'),
     ('OCCC', 'ClientOwnedOCCPledgedCollateral', 'Client owned collateral identified as eligible for OCC pledging.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('OCDM', 'OrderChequeDomestic', 'Transaction is the payment of a domestic order cheque', 'Registered', '2015-08-31'::date, '2015-08-31'::date, NULL, 'General'),
-    ('OCFG', 'OrderChequeForeign', 'Transaction is the payment of a foreign order cheque', 'Registered', '2015-08-31'::date, '2015-08-31'::date, NULL, 'General'),
+    ('OCFG', 'OrderChequeForeign', 'Transaction is the payment of a foreign order cheque', 'Registered', '2015-08-31'::date, '2015-08-31'::date, NULL, 'General')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('ODPY', 'OnDemandPayment', 'On demand/Real-time payments, e.g., Same-day wage access, gig economy payouts.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Salary & Benefits'),
     ('OFEE', 'OpeningFee', 'Transaction is related to a payment of opening fee.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'General'),
     ('OPBC', 'OTCOptionBrokerOwnedCashCollateral', 'Cash collateral payment for OTC options associated with an FCM agreement. Where such payment is segregated and not available for use by the client', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('OPCC', 'OTCOptionClientOwnedCashCollateral', 'Cash collateral payment for OTC options associated with an FCM agreement. Where such payment is not segregated and is available for use by the client upon return', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
@@ -2910,9 +2941,8 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('PADD', 'PreauthorizedDebit', 'Transaction is related to a pre-authorized debit origination', 'Registered', '2009-04-01'::date, '2007-09-01'::date, NULL, 'General'),
     ('PAYR', 'Payroll', 'Transaction is related to the payment of payroll.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Salary & Benefits'),
     ('PCOM', 'PropertyCompletionPayment', 'Final payment to complete the purchase of a property.', 'Registered', '2021-09-24'::date, '2021-09-23'::date, NULL, 'Classification: Finance'),
-    ('PDEP', 'PropertyDeposit', 'Payment of the deposit required towards purchase of a property.', 'Registered', '2021-09-24'::date, '2021-09-23'::date, NULL, 'Classification: Finance')
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('PDEP', 'PropertyDeposit', 'Payment of the deposit required towards purchase of a property.', 'Registered', '2021-09-24'::date, '2021-09-23'::date, NULL, 'Classification: Finance'),
+    ('PDLN', 'PayDayLoan', 'Pay Day Loan, e.g., short-term, high-interest loans typically due on borrower''s next payday.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('PEFC', 'PensionFundContribution', 'Transaction is contribution to pension fund.', 'Registered', '2016-11-18'::date, '2016-09-01'::date, NULL, 'Salary & Benefits'),
     ('PENO', 'PaymentBasedOnEnforcementOrder', 'Payment based on enforcement orders except those arising from judicial alimony decrees.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'Finance'),
     ('PENS', 'PensionPayment', 'Transaction is the payment of pension.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Salary & Benefits'),
@@ -2923,6 +2953,7 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('PPTI', 'PropertyInsurance', 'Transaction is a payment of property insurance.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Finance'),
     ('PRCP', 'PricePayment', 'Transaction is related to a payment of a price.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Salary & Benefits'),
     ('PRME', 'PreciousMetal', 'Transaction is related to a precious metal operation.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Investment'),
+    ('PSDS', 'PersonalLoanDisbursement', 'Personal Loan Disbursement, e.g., disbursing funds for debt consolidation, home improvement, or major purchases.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('PTSP', 'PaymentTerms', 'Transaction is related to payment terms specifications', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'General'),
     ('PTXP', 'PropertyTax', 'Transaction is related to a payment of property tax.', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'Tax'),
     ('RAPI', 'RapidPaymentInstruction', 'Instant Payments-Settlement of Rapid Payment Instruction (RPI) transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
@@ -2936,7 +2967,10 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('REOD', 'AccountOverdraftRepayment', 'Transaction is for account overdraft repayment', 'Registered', '2016-11-18'::date, '2016-09-01'::date, NULL, 'General'),
     ('REPO', 'RepurchaseAgreement', 'Cash collateral related to a repurchase agreement transaction.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('RETL', 'RetailPayment', 'Retail payment including e-commerce and online shopping.', 'Registered', '2023-03-23'::date, '2023-03-23'::date, NULL, 'Retail Payment is a common business / financial classification, and distinct from existing codes GDDS (Purchase Sale Of Goods) and GDSV (Purchase Sale Of Goods And Services).'),
-    ('RHBS', 'RehabilitationSupport', 'Benefit for the duration of occupational rehabilitation.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'Salary & Benefits'),
+    ('RHBS', 'RehabilitationSupport', 'Benefit for the duration of occupational rehabilitation.', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, 'Salary & Benefits')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('RHSV', 'RideHailingServices', 'Ride-hailing/Delivery Service, e.g., payments for app-based rides.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Subscriptions & Services'),
     ('RIMB', 'ReimbursementOfAPreviousErroneousTransaction', 'Transaction is related to a reimbursement of a previous erroneous transaction.', 'Registered', '2013-12-02'::date, '2013-11-29'::date, NULL, 'General'),
     ('RINP', 'RecurringInstallmentPayment', 'Transaction is related to a payment of a recurring installment made at regular intervals.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Finance'),
     ('RLWY', 'Railway', 'Transaction is a payment for railway transport related business.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Transport'),
@@ -2952,12 +2986,11 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('RRTP', 'RelatedRequestToPay', 'Transaction is related to a Request to Pay.', 'Registered', '2021-02-01'::date, '2021-02-01'::date, NULL, 'General'),
     ('RVPM', 'ReceiveAgainstPayment', 'Code used to pre-advise the account servicer of a forthcoming receive against payment instruction.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'General'),
     ('RVPO', 'ReverseRepurchaseAgreement', 'Cash collateral related to a reverse repurchase agreement transaction.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
-    ('SALA', 'SalaryPayment', 'Transaction is the payment of salaries.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Salary & Benefits')
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('SALA', 'SalaryPayment', 'Transaction is the payment of salaries.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Salary & Benefits'),
     ('SASW', 'ATM', 'Card Settlement-Settlement of ATM transactions.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR1045'),
     ('SAVG', 'Savings', 'Transfer to / from savings or to retirement account.', 'Registered', '2024-08-30'::date, '2007-09-01'::date, NULL, 'Investment'),
     ('SBSC', 'SecuritiesBuySellSellBuyBack', 'Cash collateral related to a Securities Buy Sell Sell Buy Back', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
+    ('SCAC', 'SchoolActivities', 'Transaction is related to payment for school activities, extracurricular programs.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'General'),
     ('SCIE', 'SingleCurrencyIRSExotic', 'Cash collateral related to Exotic single currency interest rate swap.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('SCIR', 'SingleCurrencyIRS', 'Cash collateral related to Single Currency Interest Rate Swap.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('SCRP', 'SecuritiesCrossProducts', 'Cash collateral related to Combination of securities-related exposure types.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
@@ -2968,6 +3001,7 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('SHBC', 'BrokerOwnedCollateralShortSale', 'Short Sale broker owned collateral associated with a prime broker agreement.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('SHCC', 'ClientOwnedCollateralShortSale', 'Short Sale client owned collateral associated with a prime brokerage agreement.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('SHSL', 'ShortSell', 'Cash Collateral related to a Short Sell', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
+    ('SLDS', 'StudentLoanDisbursement', 'Student Loan Disbursement, e.g., disbursing tuition funds to educational institutions or directly to students.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Finance'),
     ('SLEB', 'SecuritiesLendingAndBorrowing', 'Cash collateral related to Securities lending and borrowing.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('SLOA', 'SecuredLoan', 'Cash collateral related to a Secured loan.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('SLPI', 'PaymentSlipInstruction', 'Transaction is payment of a well formatted payment slip.', 'Registered', '2016-05-11'::date, '2016-04-01'::date, NULL, 'General'),
@@ -2976,6 +3010,9 @@ separately.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Gener
     ('SPSP', 'SalaryPensionSumPayment', 'Salary or pension payment for more months in one amount or a delayed payment of salaries or pensions.', 'Registered', '2018-11-01'::date, '2018-11-01'::date, NULL, 'Salary & Benefits'),
     ('SSBE', 'SocialSecurityBenefit', 'Transaction is a social security benefit, ie payment made by a government to support individuals.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Salary & Benefits'),
     ('STDY', 'Study', 'Transaction is related to a payment of study/tuition costs.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'General'),
+    ('STRM', 'StreamingServices', 'Streaming Services, e.g., monthly subscriptions to digital content platforms.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Subscriptions & Services')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('SUBS', 'Subscription', 'Transaction is related to a payment of information or entertainment services either in printed or electronic form.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Commercial'),
     ('SUPP', 'SupplierPayment', 'Transaction is related to a payment to a supplier.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Commercial'),
     ('SWBC', 'SwapBrokerOwnedCashCollateral', 'Cash collateral payment for swaps associated with an ISDA agreement. . Where such payment is segregated and
@@ -3003,13 +3040,13 @@ includes any collateral identified in a CSA agreement such as Swap or FX Forward
     ('TBCC', 'TBAClientOwnedCashCollateral', 'Cash collateral payment (for use by client)for TBA securities associated with a TBA Master Agreement. Where such payment is not segregated and is available for use by the client upon return.', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Collateral'),
     ('TBIL', 'TelecommunicationsBill', 'Transaction is related to a payment of telecommunications related bill.', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'General'),
     ('TCSC', 'TownCouncilServiceCharges', 'Transaction is related to a payment associated with charges levied by a town council.', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'General'),
-    ('TELI', 'TelephoneInitiatedTransaction', 'Transaction is related to a payment initiated via telephone.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'General')
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('TELI', 'TelephoneInitiatedTransaction', 'Transaction is related to a payment initiated via telephone.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'General'),
+    ('TIPS', 'TipsGratuity', 'Tip/Gratuity, e.g., additional payments for service workers at restaurants, hotels, salons, or through digital tipping platforms.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'General'),
     ('TLRF', 'NonUSMutualFundTrailerFeePayment', 'Any non-US mutual fund trailer fee (retrocession) payment (use ISIN to determine onshore versus offshore designation)', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Trailer Fee'),
     ('TLRR', 'NonUSMutualFundTrailerFeeRebatePayment', 'Any non-US mutual fund trailer fee (retrocession) rebate payment (use ISIN to determine onshore versus offshore designation)', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'Trailer Fee'),
     ('TMPG', 'TMPGClaimPayment', 'Cash payment resulting from a TMPG Claim', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'General'),
     ('TNTP', 'TaxNeutralPensionTransfer', 'Transaction is a tax-neutral transfer of existing pension balance.', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
+    ('TOLL', 'Tolls', 'Tolls, e.g., payments for road tolls, bridges, tunnels, or electronic toll collection systems.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Transport'),
     ('TPRI', 'TriPartyRepoInterest', 'Tri-Party Repo related interest', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'General'),
     ('TPRP', 'TriPartyRepoNetting', 'Tri-party Repo related net gain/loss cash movement', 'Registered', '2016-04-01'::date, '2016-01-01'::date, NULL, 'General'),
     ('TRAD', 'Commercial', 'Transaction is related to a trade services operation.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Commercial'),
@@ -3019,12 +3056,16 @@ INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "
     ('TRNC', 'TruncatedPaymentSlip', 'Transaction is payment of a beneficiary prefilled payment slip where beneficiary to payer information is truncated.', 'Registered', '2016-05-11'::date, '2016-04-01'::date, NULL, 'General'),
     ('TRPT', 'RoadPricing', 'Transaction is for the payment to top-up pre-paid card and electronic road pricing for the purpose of transportation', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'Transport'),
     ('TRVC', 'TravellerCheque', 'Transaction is the payment of a travellers cheque', 'Registered', '2015-08-31'::date, '2015-08-31'::date, NULL, 'General'),
+    ('TRVL', 'TravelAndHospitality', 'Generic code for travel and hospitality related transactions, e.g., hotel bookings, vacation rentals, travel packages, or direct hotel reservations.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Travel & Hospitality'),
     ('UBIL', 'Utilities', 'Transaction is for the payment to common utility provider that provide gas, water and/or electricity.', 'Registered', '2013-05-07'::date, '2013-05-06'::date, NULL, 'Utilities'),
     ('UNIT', 'UnitTrustPurchase', 'Transaction is purchase of Unit Trust', 'Registered', '2016-11-18'::date, '2016-09-01'::date, NULL, 'Investment'),
     ('VATX', 'ValueAddedTaxPayment', 'Transaction is the payment of value added tax.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Tax'),
-    ('VIEW', 'VisionCare', 'Transaction is a payment for vision care services.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical'),
+    ('VIEW', 'VisionCare', 'Transaction is a payment for vision care services.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Medical')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalPurpose1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('WALM', 'WalletFundingMultiUse', 'Account transfer funding a multi-use wallet.', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
     ('WALS', 'WalletFundingSingle', 'Account transfer funding a single purpose wallet.', 'Registered', '2026-05-22'::date, '2026-05-22'::date, NULL, NULL),
+    ('WALT', 'WalletTransactions', 'Transaction is related to digital wallet funding or defunding.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'Digital Wallets'),
     ('WEBI', 'InternetInitiatedTransaction', 'Transaction is related to a payment initiated via internet.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'General'),
     ('WHLD', 'WithHolding', 'Transaction is related to a payment of withholding tax.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, 'Tax'),
     ('WTER', 'WaterBill', 'Transaction is related to a payment of water bill.', 'Registered', '2007-09-01'::date, '2007-09-01'::date, NULL, 'Utilities')
@@ -3057,7 +3098,7 @@ Usage: Code value may be used in general purposes and as a replacement for AM04 
     ('AM09', 'WrongAmount', 'Amount received is not the amount agreed or expected', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('AM10', 'InvalidControlSum', 'Sum of instructed amounts does not equal the control sum.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('ARDT', 'AlreadyReturnedTransaction', 'Already returned original SCT', 'Registered', '2012-10-08'::date, '2012-10-08'::date, NULL, NULL),
-    ('BE01', 'InconsistenWithEndCustomer', 'Identification of end customer is not consistent with associated account number, organisation ID or private ID.', 'Registered', '2021-05-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('BE01', 'InconsistentWithEndCustomer', 'Identification of end customer is not consistent with associated account number, organisation ID or private ID.', 'Registered', '2021-05-01'::date, '2009-04-01'::date, NULL, NULL),
     ('BE04', 'MissingCreditorAddress', 'Specification of creditor''s address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('BE05', 'UnrecognisedInitiatingParty', 'Party who initiated the message is not recognised by the end customer', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('BE06', 'UnknownEndCustomer', 'End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
@@ -3191,7 +3232,7 @@ Used in the pacs.009 to identify the tracked FI credit transfer used as a cover 
     ('URNS', 'UrgentPaymentNetSettlement', 'Payment must be executed as an urgent transaction cleared through a real-time net settlement system, which is typically identified as a wire or high value transaction.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('WFSM', 'WaitForSettlement', 'Transaction is to be treated as an advice and only applied to the account of the creditor or next agent after settlement of the cover has been confirmed.', 'Registered', '2022-11-30'::date, '2022-11-30'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
--- Seed: ExternalStatusReason1CodeValues (302 codes)
+-- Seed: ExternalStatusReason1CodeValues (315 codes)
 INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('AB01', 'AbortedClearingTimeout', 'Clearing process aborted due to timeout.', 'Registered', '2016-04-01'::date, '2016-03-01'::date, NULL, NULL),
     ('AB02', 'AbortedClearingFatalError', 'Clearing process aborted due to a fatal error.', 'Registered', '2016-04-01'::date, '2016-03-01'::date, NULL, NULL),
@@ -3227,6 +3268,7 @@ Generic usage if cannot specify between group and payment information levels', '
     ('AC14', 'InvalidCreditorAccountType', 'Creditor account type missing or invalid', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('AC15', 'AccountDetailsChanged', 'The account details for the counterparty have changed.', 'Registered', '2018-11-01'::date, '2018-11-01'::date, NULL, NULL),
     ('AC16', 'CardNumberInvalid', 'Credit or debit card number is invalid.', 'Registered', '2021-05-01'::date, '2021-05-01'::date, NULL, NULL),
+    ('AEML', 'AmountExceedsMaxLimit', 'Requested amount exceeds the limit set by Debtor (Agent)', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('AEXR', 'AlreadyExpiredRTP', 'Request-to-pay Expiry Date and Time has already passed.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
     ('AG01', 'TransactionForbidden', 'Transaction forbidden on this type of account (formerly NoAgreement)', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('AG02', 'InvalidBankOperationCode', 'Bank Operation code specified in the message is not valid for receiver', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
@@ -3234,11 +3276,11 @@ Generic usage if cannot specify between group and payment information levels', '
     ('AG04', 'InvalidAgentCountry', 'Agent country code is missing or invalid.
 Generic usage if cannot specify between group and payment information levels.', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('AG05', 'InvalidDebtorAgentCountry', 'Debtor agent country code is missing or invalid', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
-    ('AG06', 'InvalidCreditorAgentCountry', 'Creditor agent country code is missing or invalid', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
-    ('AG07', 'UnsuccesfulDirectDebit', 'Debtor account cannot be debited for a generic reason.
-Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer''s insufficient funds for privacy reasons', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL)
+    ('AG06', 'InvalidCreditorAgentCountry', 'Creditor agent country code is missing or invalid', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('AG07', 'UnsuccesfulDirectDebit', 'Debtor account cannot be debited for a generic reason.
+Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer''s insufficient funds for privacy reasons', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('AG08', 'InvalidAccessRights', 'Transaction failed due to invalid or missing user or access right', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('AG09', 'PaymentNotReceived', 'Original payment never received.', 'Registered', '2016-11-18'::date, '2016-11-01'::date, NULL, NULL),
     ('AG10', 'AgentSuspended', 'Agent of message is suspended from the Real Time Payment system.
@@ -3277,12 +3319,12 @@ Generic usage if cannot specify between group and payment information levels.', 
     ('ARJR', 'AlreadyRejectedRTP', 'Request-to-pay has already been rejected.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
     ('ATNS', 'AttachementsNotSupported', 'Attachments to the request-to-pay are not supported.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
     ('BDAY', 'NotBusinessDay', 'Settlement Cycle Day and Calendar day should be the same.', 'Registered', '2024-05-31'::date, '2024-05-31'::date, NULL, NULL),
-    ('BE01', 'InconsistenWithEndCustomer', 'Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('BE01', 'InconsistentWithEndCustomer', 'Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('BE04', 'MissingCreditorAddress', 'Specification of creditor''s address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
-    ('BE05', 'UnrecognisedInitiatingParty', 'Party who initiated the message is not recognised by the end customer', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
-    ('BE06', 'UnknownEndCustomer', 'End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
+    ('BE05', 'UnrecognisedInitiatingParty', 'Party who initiated the message is not recognised by the end customer', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('BE06', 'UnknownEndCustomer', 'End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('BE07', 'MissingDebtorAddress', 'Specification of debtor''s address, which is required for payment, is missing/not correct.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('BE08', 'MissingDebtorName', 'Debtor name is missing', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('BE09', 'InvalidCountry', 'Country code is missing or Invalid.
@@ -3324,10 +3366,10 @@ Generic usage if cannot specifically identify debtor or creditor.', 'Registered'
     ('CHQC', 'ChequeSettledOnCreditorAccount', 'Cheque has been presented in cheque clearing and settled on the creditor''s account.', 'Registered', '2021-05-01'::date, '2021-05-01'::date, NULL, NULL),
     ('CHRG', 'UnderlyingChargeBearerWasNotDebt', 'Related to a Charge message to convey that the charge bearer code used in the corresponding Payment message was not debt.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('CN01', 'AuthorisationCancelled', 'Authorisation is cancelled.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR0964'),
-    ('CNNS', 'CreditNotesNotSupported', 'Credit notes are not supported.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
-    ('CNOR', 'CreditorBankIsNotRegistered', 'Creditor bank is not registered under this BIC in the CSM', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, NULL)
+    ('CNNS', 'CreditNotesNotSupported', 'Credit notes are not supported.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('CNOR', 'CreditorBankIsNotRegistered', 'Creditor bank is not registered under this BIC in the CSM', 'Registered', '2012-07-16'::date, '2012-07-16'::date, NULL, NULL),
     ('CURR', 'IncorrectCurrency', 'Currency of the payment is incorrect', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('CUST', 'RequestedByCustomer', 'Cancellation requested by the Debtor', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('DC02', 'SettlementNotReceived', 'Rejection of a payment due to covering FI settlement not being received.', 'Registered', '2022-05-31'::date, '2022-05-31'::date, NULL, NULL),
@@ -3367,10 +3409,10 @@ INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definitio
     ('DS24', 'WaitingTimeExpired', 'Waiting time expired due to incomplete order', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL),
     ('DS25', 'OrderFileDeleted', 'The order file was deleted by the bank server 
 (for multiple reasons)', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL),
-    ('DS26', 'UserSignedMultipleTimes', 'The same user has signed multiple times', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL),
-    ('DS27', 'UserNotYetActivated', 'The user is not yet activated (technically)', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL)
+    ('DS26', 'UserSignedMultipleTimes', 'The same user has signed multiple times', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('DS27', 'UserNotYetActivated', 'The user is not yet activated (technically)', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL),
     ('DS28', 'ReturnForTechnicalReason', 'Message routed to the wrong environment.', 'Registered', '2024-05-31'::date, '2024-05-31'::date, NULL, NULL),
     ('DT01', 'InvalidDate', 'Invalid date (eg, wrong or missing settlement date)', 'Registered', '2010-08-01'::date, '2009-04-01'::date, NULL, NULL),
     ('DT02', 'InvalidCreationDate', 'Invalid creation date and time in Group Header (eg, historic date)', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
@@ -3412,12 +3454,12 @@ Generic usage if cannot specify Service Level or Local Instrument code', 'Regist
     ('FRAD', 'FraudulentOrigin', 'Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
     ('G000', 'PaymentTransferredAndTracked', 'In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.
 
-In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.', 'Registered', '2019-09-01'::date, '2018-08-01'::date, NULL, NULL),
-    ('G001', 'PaymentTransferredAndNotTracked', 'In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.
-
-In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.', 'Registered', '2019-09-01'::date, '2018-08-01'::date, NULL, NULL)
+In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.', 'Registered', '2019-09-01'::date, '2018-08-01'::date, NULL, NULL)
 ON CONFLICT ("Code") DO NOTHING;
 INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('G001', 'PaymentTransferredAndNotTracked', 'In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.
+
+In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.', 'Registered', '2019-09-01'::date, '2018-08-01'::date, NULL, NULL),
     ('G002', 'CreditDebitNotConfirmed', 'In a FIToFI Customer Credit Transfer: Credit to the creditor''s account may not be confirmed same day. Update will follow from the Status Originator.
 In a Financial Institution Credit Transfer with cover: Debit/credit to nostro account may not be confirmed same day or Financial Institution Credit Transfer may not be transferred same day. Update will follow from the Status Originator.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
     ('G003', 'CreditPendingDocuments', 'In a FIToFI Customer Credit Transfer: Credit to creditor''s account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation. Update will follow from the Status Originator. 
@@ -3425,18 +3467,25 @@ In a Financial Institution Credit Transfer with cover: Status Originator has req
     ('G004', 'CreditPendingFunds', 'In a FIToFI Customer Credit Transfer: Credit to the creditor''s account is pending, status Originator is waiting for funds provided via a cover. Update will follow from the Status Originator.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
     ('G005', 'DeliveredWithServiceLevel', 'Payment has been delivered to creditor agent with service level.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
     ('G006', 'DeliveredWIthoutServiceLevel', 'Payment has been delivered to creditor agent without service level.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
+    ('G007', 'PaymentPassedByPaymentMarketInfrastructure', 'The payment has been passed by the Payment Market Infrastructure to the next agent in the payment chain; receipt has not yet been confirmed.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
+    ('G008', 'PaymentReceivedByNextAgentViaPaymentMarketInfrastructure', 'The payment has been received by the next agent via the Payment Market Infrastructure.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
+    ('GUAG', 'GuaranteedAgreementBreached', 'Guaranteed Agreement with Correspondent, therefore Correspondent is the liable party', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('ID01', 'CorrespondingOriginalFileStillNotSent', 'Signature file was sent to the bank but the corresponding original file has not been sent yet.', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL),
     ('IEDT', 'IncorrectExpiryDateTime', 'Expiry date time of the request-to-pay is incorrect.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
+    ('IMCC', 'InvalidMerchantCategoryCode', 'Invalid Merchant Category Code', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('INAR', 'InvalidActivationReference', 'Payer''s activation reference is invalid.', 'Registered', '2024-08-30'::date, '2024-08-30'::date, NULL, NULL),
+    ('INCT', 'InvalidChannelType', 'Invalid Channel Type', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('INDT', 'InvalidDetails', 'Details not valid for this field.', 'Registered', '2024-05-31'::date, '2024-05-31'::date, NULL, NULL),
     ('IPNS', 'InstalmentPaymentsNotSupported', 'Payments in instalments are not supported.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('IRNR', 'InitialRTPNeverReceived', 'No initial request-to-pay has been received.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
     ('ISWS', 'InvalidSettlementWindow', 'Cannot schedule instruction for Night Window.', 'Registered', '2024-05-31'::date, '2024-05-31'::date, NULL, NULL),
+    ('IUCT', 'InvalidUseCaseType', 'Invalid Use Case Type', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('MD01', 'NoMandate', 'No Mandate', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('MD02', 'MissingMandatoryInformationInMandate', 'Mandate related information data required by the scheme is missing.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('MD05', 'CollectionNotDue', 'Creditor or creditor''s agent should not have collected the direct debit', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('MD06', 'RefundRequestByEndCustomer', 'Return of funds requested by end customer', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('MD07', 'EndCustomerDeceased', 'End customer is deceased.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
+    ('MICT', 'MultipleIdenticalChargeTypes', 'Multiple identical Charge Types in Charge Breakdown', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('MINF', 'MissingInformation', 'Information missing for the field or cannot be empty.', 'Registered', '2024-05-31'::date, '2024-05-31'::date, NULL, NULL),
     ('MS02', 'NotSpecifiedReasonCustomerGenerated', 'Reason has not been specified by end customer', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('MS03', 'NotSpecifiedReasonAgentGenerated', 'Reason has not been specified by agent.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
@@ -3448,8 +3497,12 @@ In a Financial Institution Credit Transfer with cover: Status Originator has req
     ('NOFR', 'OutstandingFundingForSettlement', 'Continuous Processing Line on Hold Instruction.', 'Registered', '2024-05-31'::date, '2024-05-31'::date, NULL, NULL),
     ('NOPG', 'NoPaymentGuarantee', 'Requested payment guarantee (by Creditor) related to a request-to-pay cannot be provided.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
     ('NRCH', 'PayerOrPayerRTPSPNotReachable', 'Recipient side of the request-to-pay (payer or its request-to-pay service provider) is not reachable.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
+    ('OBO1', 'SettlementCompletedReportedOnBehalfOfCreditorAgentWithAmount', 'Settlement of the transaction has been completed and is reported by an intermediary agent or Payment Market Infrastructure on behalf of the Creditor Agent. The credited amount is known.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
+    ('OBO2', 'SettlementCompletedReportedOnBehalfOfCreditorAgentWithoutAmount', 'Settlement of the transaction has been completed and is reported by an intermediary agent or Payment Market Infrastructure on behalf of the Creditor Agent. The credited amount is not known.', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
     ('OSNS', 'OptionalServiceNotSupported', 'Requested optional service (for example instalment payments) is not supported.', 'Registered', '2024-08-30'::date, '2024-08-30'::date, NULL, NULL),
-    ('PINS', 'TypeOfPaymentInstrumentNotSupported', 'Type of payment requested in the request-to-pay is not supported by the payer.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
+    ('PINS', 'TypeOfPaymentInstrumentNotSupported', 'Type of payment requested in the request-to-pay is not supported by the payer.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062')
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('PNRT', 'PaymentNotAlignedWithRTPRequest', 'Error code used for RTP-initiated CTR when the pacs.008 details are not aligned with the pain.013 request.', 'Registered', '2026-02-28'::date, '2026-02-28'::date, NULL, NULL),
     ('RC01', 'BankIdentifierIncorrect', 'Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('RC02', 'InvalidBankIdentifier', 'Bank identifier is invalid or missing.
@@ -3462,9 +3515,7 @@ Generic usage if cannot specify between debit or credit account.', 'Registered',
     ('RC07', 'InvalidCreditorBICIdentifier', 'Creditor BIC identifier is invalid or missing', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('RC08', 'InvalidClearingSystemMemberIdentifier', 'ClearingSystemMemberidentifier is invalid or missing.
 Generic usage if cannot specify between debit or credit account', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
-    ('RC09', 'InvalidDebtorClearingSystemMemberIdentifier', 'Debtor ClearingSystemMember identifier is invalid or missing', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL)
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('RC09', 'InvalidDebtorClearingSystemMemberIdentifier', 'Debtor ClearingSystemMember identifier is invalid or missing', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('RC10', 'InvalidCreditorClearingSystemMemberIdentifier', 'Creditor ClearingSystemMember identifier is invalid or missing', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('RC11', 'InvalidIntermediaryAgent', 'Intermediary Agent is invalid or missing', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
     ('RC12', 'MissingCreditorSchemeId', 'Creditor Scheme Id is invalid or  missing', 'Registered', '2010-08-01'::date, '2010-08-01'::date, NULL, NULL),
@@ -3494,7 +3545,9 @@ INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definitio
     ('S001', 'UETRFlaggedForCancellation', 'Unique End-to-end Transaction Reference (UETR) relating to a payment has been identified as being associated with a Request for Cancellation.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
     ('S002', 'NetworkStopOfUETR', 'Unique End-to-end Transaction Reference (UETR) relating to a payment has been prevent from traveling across a messaging network.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
     ('S003', 'RequestForCancellationForwarded', 'Request for Cancellation has been forwarded to the payment processing/last payment processing agent.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
-    ('S004', 'RequestForCancellationDeliveryAcknowledgement', 'Request for Cancellation has been acknowledged as delivered to payment processing/last payment processing agent.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL),
+    ('S004', 'RequestForCancellationDeliveryAcknowledgement', 'Request for Cancellation has been acknowledged as delivered to payment processing/last payment processing agent.', 'Registered', '2018-08-01'::date, '2018-08-01'::date, NULL, NULL)
+ON CONFLICT ("Code") DO NOTHING;
+INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
     ('SBRN', 'SettlementBatchRemovalNotification', 'Remove Concurrent Batch Processing Line on hold instruction.', 'Registered', '2024-05-31'::date, '2024-05-31'::date, NULL, NULL),
     ('SL01', 'SpecificServiceOfferedByDebtorAgent', 'Due to specific service offered by the Debtor Agent.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
     ('SL02', 'SpecificServiceOfferedByCreditorAgent', 'Due to specific service offered by the Creditor Agent.', 'Registered', '2009-04-01'::date, '2009-04-01'::date, NULL, NULL),
@@ -3504,9 +3557,7 @@ INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definitio
     ('SL13', 'MaximumNumberOfDirectDebitTransactionsExceeded', 'Due to Maximum allowed Direct Debit Transactions per period service offered by the Debtor Agent.', 'Registered', '2016-04-01'::date, '2016-03-01'::date, NULL, NULL),
     ('SL14', 'MaximumDirectDebitTransactionAmountExceeded', 'Due to Maximum allowed Direct Debit Transaction amount service offered by the Debtor Agent.', 'Registered', '2016-04-01'::date, '2016-03-01'::date, NULL, NULL),
     ('SL15', 'MaximumNumberOfCreditTransactionsExceeded', 'Maximum number of credit transactions allowed by the account servicer per service period exceeded.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
-    ('SL16', 'MaximumCreditTransactionsAmountExceeded', 'Maximum total credit amount allowed by the account servicer per service period exceeded.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL)
-ON CONFLICT ("Code") DO NOTHING;
-INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definition", "Status", "LastUpdate", "CreationDate", "ReplacedBy", "AdditionalInformation") VALUES
+    ('SL16', 'MaximumCreditTransactionsAmountExceeded', 'Maximum total credit amount allowed by the account servicer per service period exceeded.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('SL17', 'DebtorNotOnWhitelistOfCreditorSide', 'Whitelisting service offered by payment system operator or financial institution. Debtor is not included on the Creditor side whitelist.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('SL18', 'DebtorOnBlacklistOfCreditorSide', 'Blacklisting service offered by payment system operator or financial institution. Debtor included on the Creditor side blacklist.', 'Registered', '2024-12-03'::date, '2024-12-03'::date, NULL, NULL),
     ('SNRD', 'ServiceNotRendered', 'Services are not yet rendered by the Payee Participant (Creditor).', 'Registered', '2024-08-30'::date, '2024-08-30'::date, NULL, 'Used by the Payer Participant (Creditor) to decline the pain.013 request initiated by Payee Bank.'),
@@ -3528,7 +3579,10 @@ INSERT INTO public."ExternalStatusReason1CodeValues" ("Code", "Name", "Definitio
     ('TS01', 'TransmissionSuccessful', 'The (technical) transmission of the file was successful.', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL),
     ('TS04', 'TransferToSignByHand', 'The order was transferred to pass by accompanying note signed by hand', 'Registered', '2011-02-14'::date, '2011-02-14'::date, NULL, NULL),
     ('UCRD', 'UnknownCreditor', 'Unknown Creditor.', 'Registered', '2021-11-30'::date, '2021-11-30'::date, NULL, 'CR1062'),
-    ('UPAY', 'UnduePayment', 'Payment is not justified.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR0964')
+    ('UPAY', 'UnduePayment', 'Payment is not justified.', 'Registered', '2021-08-31'::date, '2021-08-23'::date, NULL, 'CR0964'),
+    ('UTNV', 'UnderlyingTransactionNotValid', 'Referenced transaction not found', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, NULL),
+    ('WGDA', 'WrongDebtorAgent', 'Wrong Debtor Agent in charge request message', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'If pacs.008 is underlying transaction'),
+    ('WGDB', 'WrongDebtor', 'Wrong Debtor in charge request message', 'Registered', '2026-08-28'::date, '2026-08-28'::date, NULL, 'If pacs.009 is underlying transaction')
 ON CONFLICT ("Code") DO NOTHING;
 -- Verification -- External*Code seed row counts.
 SELECT 'ExternalAccountIdentification1CodeValues' AS "Table", count(*) AS "RowCount" FROM public."ExternalAccountIdentification1CodeValues" UNION ALL
